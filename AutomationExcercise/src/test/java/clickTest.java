@@ -3,14 +3,18 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import pageObjects.LoginPage;
+import pageObjects.MainPage;
 
 public class clickTest {
 
     private WebDriver driver;
-    private LoginPage loginPage;
+    private MainPage mainPage;
 
     @Before
+    /**
+     * Setting up the browser and web page
+     * @throws InterruptedException
+     */
     public void setUp() throws InterruptedException {
 
         driver = new ChromeDriver();
@@ -18,17 +22,17 @@ public class clickTest {
 
         String url = "https://automationexercise.com";
 
-        loginPage = new LoginPage();
-        loginPage.setDriver(driver);
-        loginPage.getDriver().get(url);
+        mainPage = new MainPage();
+        mainPage.setDriver(driver);
+        mainPage.getDriver().get(url);
     }
 
+    /**
+     * Pending Create test cases
+     */
     @Test
-    public void clickLogin() throws InterruptedException{
+    public void firstTest(){
 
-        Thread.sleep(2000);
-        loginPage.singUp().click();
     }
-
     
 }
