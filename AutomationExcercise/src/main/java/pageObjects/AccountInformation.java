@@ -29,19 +29,19 @@ public class AccountInformation {
     //Account Information text
     public WebElement accountInformationText(){
 
-        return getDriver().findElement(By.cssSelector(".login-form"));
+        return getDriver().findElement(By.xpath("//b[contains(text(),'Enter Account Information')]"));
     }
 
     //Account Information
-    public String name(){
+    public WebElement name(){
 
-        return getDriver().findElement(By.cssSelector("#name")).getText();
+        return getDriver().findElement(By.cssSelector("#name"));
 
     }
 
-    public String email(){
+    public WebElement email(){
 
-        return getDriver().findElement(By.cssSelector("#email")).getText();
+        return getDriver().findElement(By.cssSelector("#email"));
     }
 
     public WebElement password(){

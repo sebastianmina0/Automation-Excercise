@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AccountCreated {
+public class AccountDeleted {
 
     private WebDriver driver;
 
@@ -14,11 +14,11 @@ public class AccountCreated {
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
+    
+    //Account Deleted Text
+    public WebElement accountDeletedText(){
 
-    //Account created text
-    public WebElement accountCreated(){
-
-        return getDriver().findElement(By.xpath("//b[contains(text(),'Account Created')]"));
+        return getDriver().findElement(By.xpath("//b[contains(text(),'Account Deleted')]"));
     }
 
     //Continue button
@@ -26,6 +26,5 @@ public class AccountCreated {
         
         return getDriver().findElement(By.cssSelector("a[data-qa='continue-button']"));
     }
-
 
 }
