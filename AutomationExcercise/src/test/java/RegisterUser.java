@@ -9,14 +9,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
-import pageObjects.AccountCreated;
-import pageObjects.AccountDeleted;
-import pageObjects.AccountInformation;
-import pageObjects.AdHandlerUtility;
-import pageObjects.LoggedInPage;
-import pageObjects.MainPage;
-import pageObjects.SignUpLoginPage;
-
+import page_objects.handler_classes.AdHandlerUtility;
+import page_objects.login_workflow.AccountCreated;
+import page_objects.login_workflow.AccountDeleted;
+import page_objects.login_workflow.AccountInformation;
+import page_objects.login_workflow.LoggedInPage;
+import page_objects.login_workflow.SignUpLoginPage;
+import page_objects.main_page.MainPage;
 /**
  * This class is created for register an user in the webpage
  * RegisterUser

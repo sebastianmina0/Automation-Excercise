@@ -1,4 +1,4 @@
-package pageObjects;
+package page_objects.handler_classes;
 
 import java.util.HashMap;
 import java.util.List;
