@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * AccountDeleted
+ */
 public class AccountDeleted {
 
     private WebDriver driver;
@@ -15,13 +18,19 @@ public class AccountDeleted {
         this.driver = driver;
     }
     
-    //Account Deleted Text
+    /**
+     * Method that returns Account Deleted element
+     * @return WebElement
+     */
     public WebElement accountDeletedText(){
 
         return getDriver().findElement(By.xpath("//b[contains(text(),'Account Deleted')]"));
     }
 
-    //Continue button
+    /**
+     * Method that returns button element
+     * @return Button
+     */
     public WebElement continueButton(){
         
         return getDriver().findElement(By.cssSelector("a[data-qa='continue-button']"));

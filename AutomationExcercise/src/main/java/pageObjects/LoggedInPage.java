@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * 
+ * LoggedInPage
+ */
 public class LoggedInPage {
 
     private WebDriver driver;
@@ -15,107 +19,155 @@ public class LoggedInPage {
         this.driver = driver;
     }
 
-    //Main Page URL: https://automationexercise.com
-    //Header Elements
-
-    //Home Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement homeButton(){
 
         return getDriver().findElement(By.cssSelector("header[id='header'] li:nth-child(1) a:nth-child(1)"));
     }
 
-    //Products Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement productsButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/products']"));
     }
 
-    //Cart Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement cartButton(){
 
         return getDriver().findElement(By.cssSelector("body > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)"));
     }
 
-    //Logout button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement logOut(){
 
         return getDriver().findElement(By.cssSelector("a[href='/logout']"));
     }
 
-    //Delete Account Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement deleteAccount(){
 
         return getDriver().findElement(By.cssSelector("a[href='/delete_account']"));
     }
 
-    //TestCases button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement testCases(){
 
         return getDriver().findElement(By.cssSelector("header[id='header'] li:nth-child(5) a:nth-child(1)"));
     }
 
-    //API Testing button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement apiTesting(){
 
         return getDriver().findElement(By.cssSelector("header[id='header'] li:nth-child(6) a:nth-child(1)"));
     }
 
-    //Video Tutorials button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement videoTutorials(){
 
         return getDriver().findElement(By.cssSelector("a[href='https://www.youtube.com/c/AutomationExercise']"));
     }
 
-    //Contact Us button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement contactUs(){
         return getDriver().findElement(By.cssSelector("a[href='/contact_us']"));
     }
 
-    //Logged in as User text
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement loggedInAsUser(){
         return getDriver().findElement(By.cssSelector("li:nth-child(10) a:nth-child(1)"));
     }
 
     //Carousel Elements
 
-    //Right Arrow
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement rightArrow(){
 
         return getDriver().findElement(By.cssSelector("a[class='right control-carousel hidden-xs'] i[class='fa fa-angle-right']"));
     }
 
-    //Left arrow
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement leftArrow(){
 
         return getDriver().findElement(By.cssSelector("a[class='left control-carousel hidden-xs'] i[class='fa fa-angle-left']"));
 
     }
 
-    //Data Target 1
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement firstDataTarget(){
 
         return getDriver().findElement(By.cssSelector("section[id='slider'] li:nth-child(1)"));
     }
 
-    //Data Target 2
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement secondDataTarget(){
 
         return getDriver().findElement(By.cssSelector("section[id='slider'] li:nth-child(2)"));
     }
 
-    //Data Target 3
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement thirdDataTarget(){
 
         return getDriver().findElement(By.cssSelector("section[id='slider'] li:nth-child(3)"));
     }
 
-    //Test Cases carousel button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement testCasesCarousel(){
 
         return getDriver().findElement(By.cssSelector("div[class='item active'] a[class='test_cases_list'] button[type='button']"));
     }
 
-    //API Testing carousel button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement apiTestingCarousel(){
 
         return getDriver().findElement(By.cssSelector("div[class='item active'] a[class='apis_list'] button[type='button']"));
@@ -123,34 +175,55 @@ public class LoggedInPage {
 
     //Category box
 
-    //Women button and + button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement womenButton(){
 
         return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1)"));
     }
 
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement womenPlusButton(){
 
         return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1) > span:nth-child(1) > i:nth-child(1)"));
     }
 
-    //Men button and + button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement menButton(){
 
         return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1)"));
     }
 
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement menPlusButton(){
 
         return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1) > span:nth-child(1) > i:nth-child(1)"));
     }
 
-    //Kids button and + button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement kidsButton(){
 
         return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1)"));
     }
 
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement kidsPlusButton(){
 
         return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1) > span:nth-child(1) > i:nth-child(1)"));
@@ -158,90 +231,136 @@ public class LoggedInPage {
 
     //Brands Box
 
-    //Polo Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement poloButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Polo']"));
     }
 
-    //H&M Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement hmButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/H&M']"));
     }
 
-    //Madame Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement madameButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Madame']"));
     }
 
-    //Mast & Harbour Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement mastharbourButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Mast & Harbour']"));
     }
 
-    //BabyHug Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement babyHugButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Babyhug']"));
     }
 
-    //Allen Solly Junior Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement allenSollyButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Allen Solly Junior']"));
     }
 
-    //Kookie Kids Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement kookieKidsButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Kookie Kids']"));
     }
 
-    //Biba Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement bibaButton(){
 
         return getDriver().findElement(By.cssSelector("a[href='/brand_products/Biba']"));
     }
 
-    //Features Items Frame
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement featureItems(){
 
         return getDriver().findElement(By.cssSelector(".features_items"));
     }
 
-    //Recommended Items Carousel
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement recommendItems(){
 
         return getDriver().findElement(By.cssSelector(".recommended_items"));
     }
 
-    //Recommended Items Right Arrow
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement recommendItemsRightArrow(){
 
         return getDriver().findElement(By.cssSelector("a[class='right recommended-item-control'] i[class='fa fa-angle-right']"));
     }
 
-    //Recommended Items Left Arrow
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement recommendItemsLeftArrow(){
 
         return getDriver().findElement(By.cssSelector("a[class='left recommended-item-control'] i[class='fa fa-angle-left']"));
     }
 
-    //ScrollUp arrow
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement scrollUp(){
 
         return getDriver().findElement(By.cssSelector(".fa.fa-angle-up"));
     }
 
-    //Subscription textbox and right arrow
-   public WebElement subscription(){
+    /**
+     * Method that returns a text box element
+     * @return Textbox
+     */
+    public WebElement subscription(){
 
         return getDriver().findElement(By.cssSelector("#susbscribe_email"));
     }
 
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement subscriptionArrow(){
 
         return getDriver().findElement(By.cssSelector("#subscribe"));

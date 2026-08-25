@@ -15,63 +15,101 @@ public class AccountInformation {
         this.driver = driver;
     }
 
-    //Title checkbox
+    /**
+     * Method that returns checkbox element
+     * @return Checkbox
+     */
     public WebElement mrCheckbox(){
 
         return getDriver().findElement(By.cssSelector("#id_gender1"));
     }
 
+    /**
+     * Method that returns checkbox element
+     * @return Checkbox
+     */
     public WebElement mrsCheckbox(){
 
         return getDriver().findElement(By.cssSelector("#id_gender2"));
     }
 
-    //Account Information text
+    /**
+     * Method that returns Enter Account Information element
+     * @return WebElement
+     */
     public WebElement accountInformationText(){
 
         return getDriver().findElement(By.xpath("//b[contains(text(),'Enter Account Information')]"));
     }
 
-    //Account Information
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement name(){
 
         return getDriver().findElement(By.cssSelector("#name"));
 
     }
 
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement email(){
 
         return getDriver().findElement(By.cssSelector("#email"));
     }
 
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement password(){
 
         return getDriver().findElement(By.cssSelector("#password"));
     }
 
-    //Date of birth
+    /**
+     * Method that returns dropdown
+     * @return Dropdown
+     */
     public WebElement day(){
 
         return getDriver().findElement(By.cssSelector("#days"));
     }
 
+    /**
+     * Method that returns dropdown
+     * @return Dropdown
+     */
     public WebElement month(){
 
         return getDriver().findElement(By.cssSelector("#months"));
     }
 
+    /**
+     * Method that returns dropdown
+     * @return Dropdown
+     */
     public WebElement year(){
 
         return getDriver().findElement(By.cssSelector("#years"));
     }
 
-    //Sign up for our newsletter checkbox
+    /**
+     * Method that returns checkbox element
+     * @return Checkbox
+     */
     public WebElement newsLetter(){
 
         return getDriver().findElement(By.cssSelector("#newsletter"));
     }
 
-    //Special offers checkbox
+    /**
+     * Method that returns checkbox element
+     * @return Checkbox
+     */
     public WebElement specialOffers(){
 
         return getDriver().findElement(By.cssSelector("#optin"));
@@ -79,66 +117,100 @@ public class AccountInformation {
 
     //Address Information
 
-    //First name text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement firstName(){
 
         return getDriver().findElement(By.cssSelector("#first_name"));
     }
 
-    //Last name text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement lastName(){
 
         return getDriver().findElement(By.cssSelector("#last_name"));
     }
 
-    //Company text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement company(){
 
         return getDriver().findElement(By.cssSelector("#company"));
     }
 
-    //Address and Address2 text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement address(){
 
         return getDriver().findElement(By.cssSelector("#address1"));
     }
 
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement address2(){
 
         return getDriver().findElement(By.cssSelector("#address2"));
     }
 
-    //Country dropdown list
+    /**
+     * Method that returns dropdown element
+     * @return Dropdown
+     */
     public WebElement country(){
 
         return getDriver().findElement(By.cssSelector("#country"));
     }
 
-    //State text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement state(){
 
         return getDriver().findElement(By.cssSelector("#state"));
     }
 
-    //City text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement city(){
 
         return getDriver().findElement(By.cssSelector("#city"));
     }
 
-    //Zipcode text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement zipCode(){
 
         return getDriver().findElement(By.cssSelector("#zipcode"));
     }
 
-    //Mobile Number text box
+    /**
+     * Method that returns text box element
+     * @return Textbox
+     */
     public WebElement mobileNumber(){
 
         return getDriver().findElement(By.cssSelector("#mobile_number"));
     }
 
-    //Create Account button
+    /**
+     * Method that returns a button elemetn
+     * @return Button
+     */
     public WebElement createAccount(){
 
         return getDriver().findElement(By.cssSelector("button[data-qa='create-account']"));

@@ -17,6 +17,11 @@ import pageObjects.LoggedInPage;
 import pageObjects.MainPage;
 import pageObjects.SignUpLoginPage;
 
+/**
+ * This class is created for register an user in the webpage
+ * RegisterUser
+ */
+
 public class RegisterUser {
 
     private WebDriver driver;
@@ -85,7 +90,7 @@ public class RegisterUser {
     }
 
     /**
-     * Register User test case
+     * Test Case #1 - Register User
      */
     @Test
     public void registerUser() throws InterruptedException{
@@ -101,7 +106,7 @@ public class RegisterUser {
             driver.quit();
         }
 
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         AdHandlerUtility.hideAds(driver);
 
         //5)Verify 'New User Signup!' is visible

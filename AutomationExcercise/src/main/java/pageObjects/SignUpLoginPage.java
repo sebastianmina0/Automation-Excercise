@@ -15,7 +15,10 @@ public class SignUpLoginPage {
         this.driver = driver;
     }
     
-    //New User Signup text
+    /**
+     * Method that returns a text box element
+     * @return Textbox
+     */
     public WebElement newUser(){
 
         return getDriver().findElement(By.cssSelector("div[class='signup-form'] h2"));
@@ -23,19 +26,28 @@ public class SignUpLoginPage {
 
     //Signup frame
 
-    //Name Textbox
+    /**
+     * Method that returns a text box element
+     * @return Textbox
+     */
     public WebElement nameBox(){
 
         return getDriver().findElement(By.cssSelector("input[placeholder='Name']"));
     }
 
-    //Email Textbox
+    /**
+     * Method that returns a text box element
+     * @return Textbox
+     */
     public WebElement emailBox(){
 
         return getDriver().findElement(By.cssSelector("input[data-qa='signup-email']"));
     }
 
-    //Singup Button
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
     public WebElement signUpButton(){
 
         return getDriver().findElement(By.cssSelector("button[data-qa='signup-button']"));
