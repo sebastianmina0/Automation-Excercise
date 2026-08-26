@@ -1,10 +1,9 @@
+
 import java.time.Duration;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,31 +11,26 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import page_objects.delete_account.AccountDeleted;
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.login_workflow.LoggedInPage;
 import page_objects.main_page.MainPage;
 import page_objects.signup_workflow.SignUpLoginPage;
 
 /**
- * This class is created to login with an existing user
- * CorrectLogin
+ * This class is created to test and incorrect login workflow
+ * IncorrectLogin
  */
-public class CorrectLogin {
+public class IncorrectLogin {
 
     private WebDriver driver;
-    private SignUpLoginPage signUpLoginPage;
-    private LoggedInPage loggedInPage;
-    private AccountDeleted accountDeleted;
     private MainPage mainPage;
+    private SignUpLoginPage signUpLoginPage;
     private ChromeOptions options;
     private String url;
     private WebDriverWait wait;
 
-    //Login information
-
-    private final String email = "user@user.user.user";
-    private final String password = "password43271234";
+    //Incorrect Login Information
+    private final String email = "sebastianmina654@gmail.com";
+    private final String password = "password";
 
 
     @Before
@@ -50,7 +44,7 @@ public class CorrectLogin {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
+        
         url = "https://automationexercise.com";
 
         mainPage = new MainPage();
@@ -60,21 +54,12 @@ public class CorrectLogin {
         signUpLoginPage = new SignUpLoginPage();
         signUpLoginPage.setDriver(driver);
 
-        loggedInPage = new LoggedInPage();
-        loggedInPage.setDriver(driver);
-
-        accountDeleted = new AccountDeleted();
-        accountDeleted.setDriver(driver);
-        
     }
 
-    /**
-     * Test Case 2 -  Login User with correct email and password
-     */
     @Test
-    public void userLogin(){
+    public void incorrectLogin(){
 
-        //3) Verify that home page is visible succesfully
+        // 3) Verify that home page is visible successfully
         AdHandlerUtility.hideAds(driver);
         WebElement signUpButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/login']")));
         //4) Click on 'Signup / Login' button
@@ -84,36 +69,23 @@ public class CorrectLogin {
         if(signUpLoginPage.loginText().isDisplayed() == true){
 
             AdHandlerUtility.hideAds(driver);
-            //6) Enter correct email address and password
+            //6) Enter incorrect email address and password
             signUpLoginPage.emailLogin().sendKeys(email);
             signUpLoginPage.passwordLogin().sendKeys(password);
         } else {
             driver.quit();
         }
 
-        //7) Click 'login' button
+        //7) Click login button
         AdHandlerUtility.safeClick(driver, signUpLoginPage.loginButton());
+        //8) Verify error 'Your email or password is incorrect!' is visible
+        WebElement errorMessage = signUpLoginPage.getDriver().findElement(By.xpath("//p[normalize-space()='Your email or password is incorrect!']"));
+        if(errorMessage.isDisplayed() == true){
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-        AdHandlerUtility.hideAds(driver);
-
-        //8) Verify that 'Logged in as username' is visible
-        if(loggedInPage.loggedInAsUser().isDisplayed() == true){
-
-            //9) Click 'Delete Account' button
-            WebElement btnDelete = loggedInPage.deleteAccount();
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", btnDelete);
-
-        } else {
+            System.out.println("Test Case pass, email or password incorrect");
+        } else{
             driver.quit();
         }
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-        AdHandlerUtility.hideAds(driver);
-
-        //10) Verify that 'ACCOUNT DELETED!' is visible
-        Assert.assertEquals(true, accountDeleted.accountDeletedText().isDisplayed());
 
     }
 
