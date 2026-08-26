@@ -34,7 +34,7 @@ public class CorrectLogin {
     private WebDriverWait wait;
 
     //Login information
-    
+
     private final String email = "user@user.user.user";
     private final String password = "password43271234";
 
@@ -68,7 +68,9 @@ public class CorrectLogin {
         
     }
 
-
+    /**
+     * Test Case 2 -  Login User with correct email and password
+     */
     @Test
     public void UserLogin(){
 
