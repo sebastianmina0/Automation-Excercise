@@ -2,12 +2,15 @@ import java.time.Duration;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.delete_account.AccountDeleted;
 import page_objects.handler_classes.AdHandlerUtility;
@@ -32,6 +35,7 @@ public class RegisterUser {
     private LoggedInPage loggedInPage;
     private AccountDeleted accountDeleted;
     private String url;
+    private WebDriverWait wait;
 
     //Account information variables
     private final String name = "prueba1";
@@ -63,7 +67,8 @@ public class RegisterUser {
         options = new AdHandlerUtility().hideChromeOptions();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+       
 
         url = "https://automationexercise.com";
 
@@ -94,18 +99,12 @@ public class RegisterUser {
     @Test
     public void registerUser() throws InterruptedException{
 
-        AdHandlerUtility.hideAds(driver);
         //3) Verify that home page is visible successfully
-        if(mainPage.testCasesCarousel().isDisplayed() == true){
+        AdHandlerUtility.hideAds(driver);
+        WebElement signUpButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/login']")));
+        //4) Click on 'Signup / Login' button
+        AdHandlerUtility.safeClick(driver, signUpButton);
 
-            //4)Click on Signup/Login button
-            AdHandlerUtility.safeClick(driver, mainPage.singUp());
-
-        } else {
-            driver.quit();
-        }
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         AdHandlerUtility.hideAds(driver);
 
         //5)Verify 'New User Signup!' is visible
@@ -178,6 +177,8 @@ public class RegisterUser {
         //13) Click 'Create Account button'
         AdHandlerUtility.safeClick(driver, accountInformation.createAccount());
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        
         //14) Verify that 'ACCOUNT CREATED!' is visible
         if(accountCreated.accountCreated().isDisplayed() == true){
 
