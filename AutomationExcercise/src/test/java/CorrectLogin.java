@@ -18,6 +18,10 @@ import page_objects.login_workflow.LoggedInPage;
 import page_objects.main_page.MainPage;
 import page_objects.signup_workflow.SignUpLoginPage;
 
+/**
+ * This class is created to login with an existing user
+ * CorrectLogin
+ */
 public class CorrectLogin {
 
     private WebDriver driver;
@@ -30,6 +34,7 @@ public class CorrectLogin {
     private WebDriverWait wait;
 
     //Login information
+    
     private final String email = "user@user.user.user";
     private final String password = "password43271234";
 
