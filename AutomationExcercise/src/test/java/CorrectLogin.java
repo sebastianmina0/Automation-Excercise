@@ -3,13 +3,11 @@ import java.time.Duration;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.delete_account.AccountDeleted;
@@ -35,7 +33,7 @@ public class CorrectLogin {
 
     //Login information
 
-    private final String email = "user@user.user.user";
+    private final String email = "user@user.user.use";
     private final String password = "password43271234";
 
 
@@ -74,11 +72,10 @@ public class CorrectLogin {
     @Test
     public void userLogin(){
 
-        //3) Verify that home page is visible succesfully
         AdHandlerUtility.hideAds(driver);
-        WebElement signUpButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/login']")));
+        //3) Verify that home page is visible succesfully
         //4) Click on 'Signup / Login' button
-        AdHandlerUtility.safeClick(driver, signUpButton);
+        mainPage.homePageVerifying();
 
         //5) Verify 'Login to your account' is visible
         if(signUpLoginPage.loginText().isDisplayed() == true){

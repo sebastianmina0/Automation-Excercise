@@ -1,12 +1,19 @@
 package page_objects.main_page;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import page_objects.handler_classes.AdHandlerUtility;
 
 public class MainPage {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     public WebDriver getDriver() {
         return driver;
@@ -337,5 +344,17 @@ public class MainPage {
     public WebElement subscriptionArrow(){
 
         return getDriver().findElement(By.cssSelector("#subscribe"));
+    }
+
+    //Services
+
+    public void homePageVerifying(){
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        //3) Verify that home page is visible succesfully
+        AdHandlerUtility.hideAds(driver);
+        WebElement signUpButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/login']")));
+        //4) Click on 'Signup / Login' button
+        AdHandlerUtility.safeClick(driver, signUpButton);
     }
 }
