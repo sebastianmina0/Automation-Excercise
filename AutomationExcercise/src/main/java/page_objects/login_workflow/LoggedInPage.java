@@ -104,7 +104,7 @@ public class LoggedInPage {
      * @return Button
      */
     public WebElement loggedInAsUser(){
-        return getDriver().findElement(By.cssSelector("li:nth-child(10) a:nth-child(1)"));
+        return getDriver().findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a"));
     }
 
     //Carousel Elements

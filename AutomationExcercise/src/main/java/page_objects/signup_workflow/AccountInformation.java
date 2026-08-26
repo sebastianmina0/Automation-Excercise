@@ -1,4 +1,4 @@
-package page_objects.login_workflow;
+package page_objects.signup_workflow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

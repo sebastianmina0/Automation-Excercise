@@ -1,4 +1,4 @@
-package page_objects.login_workflow;
+package page_objects.signup_workflow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +15,8 @@ public class SignUpLoginPage {
         this.driver = driver;
     }
     
+    //SingUp Form
+
     /**
      * Method that returns a text box element
      * @return Textbox
@@ -51,6 +53,28 @@ public class SignUpLoginPage {
     public WebElement signUpButton(){
 
         return getDriver().findElement(By.cssSelector("button[data-qa='signup-button']"));
+    }
+
+    //Login Form
+
+    public WebElement emailLogin(){
+
+        return getDriver().findElement(By.cssSelector("input[data-qa='login-email'"));
+    }
+
+    public WebElement passwordLogin(){
+
+        return getDriver().findElement(By.cssSelector("input[data-qa='login-password'"));
+    }
+
+    public WebElement loginText(){
+
+        return getDriver().findElement(By.xpath("//h2[contains(text(),'Login to your account')]"));
+    }
+
+    public WebElement loginButton(){
+
+        return getDriver().findElement(By.cssSelector("button[data-qa='login-button']"));
     }
 
 }
