@@ -2,21 +2,25 @@ import java.time.Duration;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import page_objects.delete_account.AccountDeleted;
+import page_objects.delete_account.Services.AccountDeletedServices;
+import page_objects.delete_account.UI.AccountDeletedUI;
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.login_workflow.LoggedInPage;
-import page_objects.main_page.MainPage;
-import page_objects.signup_workflow.AccountCreated;
-import page_objects.signup_workflow.AccountInformation;
-import page_objects.signup_workflow.SignUpLoginPage;
+import page_objects.login_workflow.Services.LoggedInPageServices;
+import page_objects.login_workflow.UI.LoggedInPageUI;
+import page_objects.main_page.Services.MainPageServices;
+import page_objects.main_page.UI.MainPageUI;
+import page_objects.signup_workflow.Services.AccountCreatedServices;
+import page_objects.signup_workflow.Services.AccountInformationServices;
+import page_objects.signup_workflow.Services.SignUpLoginPageServices;
+import page_objects.signup_workflow.UI.AccountCreatedUI;
+import page_objects.signup_workflow.UI.AccountInformationUI;
+import page_objects.signup_workflow.UI.SignUpLoginPageUI;
 /**
  * This class is created for register an user in the webpage
  * RegisterUser
@@ -24,16 +28,24 @@ import page_objects.signup_workflow.SignUpLoginPage;
 
 public class RegisterUser {
 
+    //WebElement variables
     private WebDriver driver;
     private ChromeOptions options;
-    private MainPage mainPage;
-    private SignUpLoginPage signUpLoginPage;
-    private AccountInformation accountInformation;
-    private AccountCreated accountCreated;
-    private LoggedInPage loggedInPage;
-    private AccountDeleted accountDeleted;
+    private MainPageUI mainPageUI;
+    private SignUpLoginPageUI signUpLoginPageUI;
+    private AccountInformationUI accountInformationUI;
+    private AccountCreatedUI accountCreatedUI;
+    private LoggedInPageUI loggedInPageUI;
+    private AccountDeletedUI accountDeletedUI;
     private String url;
-    private WebDriverWait wait;
+
+    //Services variables
+    private MainPageServices mainPageServices;
+    private SignUpLoginPageServices signUpLoginPageServices;
+    private AccountInformationServices accountInformationServices;
+    private AccountCreatedServices accountCreatedServices;
+    private LoggedInPageServices loggedInPageServices;
+    private AccountDeletedServices accountDeletedServices;
 
     //Account information variables
     private final String name = "prueba1";
@@ -53,7 +65,9 @@ public class RegisterUser {
     private final String city = "Bogota";
     private final String zipCode = "1111111";
     private final String mobileNumber = "3334445566";
-    
+
+    //Wait variable
+    private WebDriverWait wait;
 
     @Before
     /**
@@ -65,29 +79,38 @@ public class RegisterUser {
         options = new AdHandlerUtility().hideChromeOptions();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
        
-
         url = "https://automationexercise.com";
 
-        mainPage = new MainPage();
-        mainPage.setDriver(driver);
-        mainPage.getDriver().get(url);
+        //Initialize WebElements
+        mainPageUI = new MainPageUI(driver);
+        mainPageUI.setDriver(driver);
+        mainPageUI.getDriver().get(url);
 
-        signUpLoginPage = new SignUpLoginPage();
-        signUpLoginPage.setDriver(driver);
+        signUpLoginPageUI = new SignUpLoginPageUI(driver);
+        signUpLoginPageUI.setDriver(driver);
 
-        accountInformation = new AccountInformation();
-        accountInformation.setDriver(driver);
+        accountInformationUI = new AccountInformationUI(driver);
+        accountInformationUI.setDriver(driver);
 
-        accountCreated = new AccountCreated();
-        accountCreated.setDriver(driver);
+        accountCreatedUI = new AccountCreatedUI(driver);
+        accountCreatedUI.setDriver(driver);
 
-        loggedInPage = new LoggedInPage();
-        loggedInPage.setDriver(driver);
+        loggedInPageUI = new LoggedInPageUI(driver);
+        loggedInPageUI.setDriver(driver);
 
-        accountDeleted = new AccountDeleted();
-        accountDeleted.setDriver(driver);
+        accountDeletedUI = new AccountDeletedUI(driver);
+        accountDeletedUI.setDriver(driver);
+
+        //Intialize Services
+        mainPageServices = new MainPageServices(driver);
+        signUpLoginPageServices = new SignUpLoginPageServices(driver);
+        accountInformationServices = new AccountInformationServices(driver);
+        accountCreatedServices = new AccountCreatedServices(driver);
+        loggedInPageServices = new LoggedInPageServices(driver);
+        accountDeletedServices = new AccountDeletedServices(driver);
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
     }
 
@@ -99,119 +122,63 @@ public class RegisterUser {
 
         AdHandlerUtility.hideAds(driver);
         //3) Verify that home page is visible succesfully
+        wait.until(ExpectedConditions.visibilityOf(mainPageUI.singUp()));
+
         //4) Click on 'Signup / Login' button
-        mainPage.homePageVerifying();
+        mainPageServices.clickSingUpButton();
 
         //5)Verify 'New User Signup!' is visible
-        if(signUpLoginPage.newUser().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(signUpLoginPageUI.newUser()));
 
-            AdHandlerUtility.hideAds(driver);
-            //6)Enter name and email address
-            signUpLoginPage.nameBox().sendKeys(name);
+        //6) Enter name and email address
+        signUpLoginPageServices.enterNameAndEmail(name, email);
 
-            signUpLoginPage.emailBox().sendKeys(email);
-
-            //7) Click 'Signup' button
-            AdHandlerUtility.safeClick(driver, signUpLoginPage.signUpButton());
-            
-         }else{
-            driver.quit();
-        }
+        AdHandlerUtility.hideAds(driver);
+        //7) Click 'Signup' button
+        signUpLoginPageServices.clickSingUpButton();
 
         AdHandlerUtility.hideAds(driver);
         //8) Verify that 'ENTER ACCOUNT INFORMATION' is visible
-        if(accountInformation.accountInformationText().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(accountInformationUI.accountInformationText()));
 
-            //9) Fill details: Title, Name, Email, Password, Date of birth
-            //Email is not editable field in this form
-            //Setting name
-            accountInformation.name().clear();
-            accountInformation.name().sendKeys(name);
-
-            //Setting password
-            accountInformation.password().sendKeys(password);
-
-            //Setting Date of Birth
-            Select dayA = new Select(accountInformation.day());
-            Select monthA = new Select(accountInformation.month());
-            Select yearA = new Select(accountInformation.year());
-
-            //Day
-            dayA.selectByValue(day);
-
-            //Month
-            monthA.selectByValue(month);
-
-            //Year
-            yearA.selectByValue(year);
-
-         }else{
-            driver.quit();
-        }
+        //9) Fill details: Title, Name, Email, Password, Date of birth
+        accountInformationServices.fillInformationDetails(name, password, day, month, year);
         AdHandlerUtility.hideAds(driver);
+
         //10) Select checkbox 'Sign up for our newsletter!'
-        AdHandlerUtility.safeClick(driver, accountInformation.newsLetter());
+        accountInformationServices.clickNewsLetter();
 
         //11) Select checkbox 'Receive special offers from our partners!'
-        AdHandlerUtility.safeClick(driver, accountInformation.specialOffers());
+        accountInformationServices.clickSpecialOffers();
+        AdHandlerUtility.hideAds(driver);
 
         //12) Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
-        accountInformation.firstName().sendKeys(firstName);
-        accountInformation.lastName().sendKeys(lastName);
-        accountInformation.company().sendKeys(company);
-        accountInformation.address().sendKeys(address);
-        accountInformation.address2().sendKeys(address2);
-
-        Select country = new Select (accountInformation.country());
-        country.selectByValue("Canada");
-
-        accountInformation.state().sendKeys(state);
-        accountInformation.city().sendKeys(city);
-        accountInformation.zipCode().sendKeys(zipCode);
-        accountInformation.mobileNumber().sendKeys(mobileNumber);
-
+        accountInformationServices.fillAddressInformationDetails(firstName, lastName, company, address, address2, state, city, zipCode, mobileNumber);
+        
         //13) Click 'Create Account button'
-        AdHandlerUtility.safeClick(driver, accountInformation.createAccount());
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        accountInformationServices.clickCreateAccount();
 
         //14) Verify that 'ACCOUNT CREATED!' is visible
-        if(accountCreated.accountCreated().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(accountCreatedUI.accountCreated()));
 
-            //15) Click 'Continue' button
-            AdHandlerUtility.hideAds(driver);
-            WebElement btnContinue = accountCreated.continueButton();
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", btnContinue);
-           
-        } else {
-            driver.quit();
-        }
+        //15) Click 'Continue' button
+        AdHandlerUtility.hideAds(driver);
+        accountCreatedServices.clickContinue();
 
         AdHandlerUtility.hideAds(driver);
         //16) Verify that 'Logged in as username' is visible
-        if(loggedInPage.loggedInAsUser().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(loggedInPageUI.loggedInAsUser()));
 
-            //17) Click 'Delete Account' button
-            AdHandlerUtility.hideAds(driver);
-            WebElement btnDelete = loggedInPage.deleteAccount();
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", btnDelete);
-        } else {
-            driver.quit();
-        }
+        AdHandlerUtility.hideAds(driver);
+        //17) Click 'Delete Account' button
+        loggedInPageServices.clickDelete();
 
         //18) Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
         AdHandlerUtility.hideAds(driver);
-        if(accountDeleted.accountDeletedText().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
 
-            //Click continue button
-            AdHandlerUtility.hideAds(driver);
-            WebElement btnContinue = accountDeleted.continueButton();
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", btnContinue);    
-        }
-        driver.quit();      
+        //Click continue button
+        accountDeletedServices.clickContinue();
     }
-    
+
 }

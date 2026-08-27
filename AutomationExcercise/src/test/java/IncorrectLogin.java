@@ -8,11 +8,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.main_page.MainPage;
-import page_objects.signup_workflow.SignUpLoginPage;
+import page_objects.main_page.Services.MainPageServices;
+import page_objects.main_page.UI.MainPageUI;
+import page_objects.signup_workflow.Services.SignUpLoginPageServices;
+import page_objects.signup_workflow.UI.SignUpLoginPageUI;
 
 /**
  * This class is created to test and incorrect login workflow
@@ -21,11 +24,19 @@ import page_objects.signup_workflow.SignUpLoginPage;
 public class IncorrectLogin {
 
     private WebDriver driver;
-    private MainPage mainPage;
-    private SignUpLoginPage signUpLoginPage;
     private ChromeOptions options;
     private String url;
     private WebDriverWait wait;
+
+    //WebElement variables
+
+    private MainPageUI mainPageUI;
+    private SignUpLoginPageUI signUpLoginPageUI;
+
+    //Services variables
+    private MainPageServices mainPageServices;
+    private SignUpLoginPageServices signUpLoginPageServices;
+
 
     //Incorrect Login Information
     private final String email = "sebastianmina654@gmail.com";
@@ -46,12 +57,15 @@ public class IncorrectLogin {
         
         url = "https://automationexercise.com";
 
-        mainPage = new MainPage();
-        mainPage.setDriver(driver);
-        mainPage.getDriver().get(url);
+        mainPageUI = new MainPageUI(driver);
+        mainPageUI.setDriver(driver);
+        mainPageUI.getDriver().get(url);
 
-        signUpLoginPage = new SignUpLoginPage();
-        signUpLoginPage.setDriver(driver);
+        signUpLoginPageUI = new SignUpLoginPageUI(driver);
+        signUpLoginPageUI.setDriver(driver);
+
+        mainPageServices = new MainPageServices(driver);
+        signUpLoginPageServices = new SignUpLoginPageServices(driver);
 
     }
 
@@ -60,27 +74,26 @@ public class IncorrectLogin {
 
         AdHandlerUtility.hideAds(driver);
         //3) Verify that home page is visible succesfully
+        wait.until(ExpectedConditions.visibilityOf(mainPageUI.singUp()));   
+
         //4) Click on 'Signup / Login' button
-        mainPage.homePageVerifying();
+        mainPageServices.clickSingUpButton();
 
         //5) Verify 'Login to your account' is visible
-        if(signUpLoginPage.loginText().isDisplayed() == true){
-
-            AdHandlerUtility.hideAds(driver);
-            //6) Enter incorrect email address and password
-            signUpLoginPage.emailLogin().sendKeys(email);
-            signUpLoginPage.passwordLogin().sendKeys(password);
-        } else {
-            driver.quit();
-        }
+        wait.until(ExpectedConditions.visibilityOf(signUpLoginPageUI.loginText()));
 
         AdHandlerUtility.hideAds(driver);
+        //6) Enter incorrect email address and password
+        signUpLoginPageServices.enterEmailAndPassword(email, password);
+  
+        AdHandlerUtility.hideAds(driver);
         //7) Click login button
-        AdHandlerUtility.safeClick(driver, signUpLoginPage.loginButton());
+        signUpLoginPageServices.clickLoginButton();
+        
         //8) Verify error 'Your email or password is incorrect!' is visible
-        WebElement errorMessage = signUpLoginPage.getDriver().findElement(By.xpath("//p[normalize-space()='Your email or password is incorrect!']"));
-        if(errorMessage.isDisplayed() == true){
+        WebElement errorMessage = signUpLoginPageUI.getDriver().findElement(By.xpath("//p[normalize-space()='Your email or password is incorrect!']"));
 
+        if(errorMessage.isDisplayed() == true){
             System.out.println("Test Case pass, email or password incorrect");
         } else{
             driver.quit();

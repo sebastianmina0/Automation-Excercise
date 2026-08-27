@@ -3,18 +3,20 @@ import java.time.Duration;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import page_objects.delete_account.AccountDeleted;
+import page_objects.delete_account.UI.AccountDeletedUI;
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.login_workflow.LoggedInPage;
-import page_objects.main_page.MainPage;
-import page_objects.signup_workflow.SignUpLoginPage;
+import page_objects.login_workflow.Services.LoggedInPageServices;
+import page_objects.login_workflow.UI.LoggedInPageUI;
+import page_objects.main_page.Services.MainPageServices;
+import page_objects.main_page.UI.MainPageUI;
+import page_objects.signup_workflow.Services.SignUpLoginPageServices;
+import page_objects.signup_workflow.UI.SignUpLoginPageUI;
 
 /**
  * This class is created to login with an existing user
@@ -22,19 +24,26 @@ import page_objects.signup_workflow.SignUpLoginPage;
  */
 public class CorrectLogin {
 
+    //WebElement variables
     private WebDriver driver;
-    private SignUpLoginPage signUpLoginPage;
-    private LoggedInPage loggedInPage;
-    private AccountDeleted accountDeleted;
-    private MainPage mainPage;
+    private SignUpLoginPageUI signUpLoginPageUI;
+    private LoggedInPageUI loggedInPageUI;
+    private AccountDeletedUI accountDeletedUI;
+    private MainPageUI mainPageUI;
     private ChromeOptions options;
     private String url;
-    private WebDriverWait wait;
+
+    //Services variables
+    private MainPageServices mainPageServices;
+    private SignUpLoginPageServices signUpLoginPageServices;
+    private LoggedInPageServices loggedInPageServices;
 
     //Login information
 
     private final String email = "user@user.user.use";
     private final String password = "password43271234";
+
+    private WebDriverWait wait;
 
 
     @Before
@@ -47,22 +56,27 @@ public class CorrectLogin {
         options = new AdHandlerUtility().hideChromeOptions();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         url = "https://automationexercise.com";
 
-        mainPage = new MainPage();
-        mainPage.setDriver(driver);
-        mainPage.getDriver().get(url);
+        mainPageUI = new MainPageUI(driver);
+        mainPageUI.setDriver(driver);
+        mainPageUI.getDriver().get(url);
 
-        signUpLoginPage = new SignUpLoginPage();
-        signUpLoginPage.setDriver(driver);
+        signUpLoginPageUI = new SignUpLoginPageUI(driver);
+        signUpLoginPageUI.setDriver(driver);
 
-        loggedInPage = new LoggedInPage();
-        loggedInPage.setDriver(driver);
+        loggedInPageUI = new LoggedInPageUI(driver);
+        loggedInPageUI.setDriver(driver);
 
-        accountDeleted = new AccountDeleted();
-        accountDeleted.setDriver(driver);
+        accountDeletedUI = new AccountDeletedUI(driver);
+        accountDeletedUI.setDriver(driver);
+
+        mainPageServices = new MainPageServices(driver);
+        signUpLoginPageServices = new SignUpLoginPageServices(driver);
+        loggedInPageServices = new LoggedInPageServices(driver);
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         
     }
 
@@ -74,43 +88,32 @@ public class CorrectLogin {
 
         AdHandlerUtility.hideAds(driver);
         //3) Verify that home page is visible succesfully
+        wait.until(ExpectedConditions.visibilityOf(mainPageUI.singUp()));   
+
         //4) Click on 'Signup / Login' button
-        mainPage.homePageVerifying();
+        mainPageServices.clickSingUpButton();
 
         //5) Verify 'Login to your account' is visible
-        if(signUpLoginPage.loginText().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(signUpLoginPageUI.loginText()));
 
-            AdHandlerUtility.hideAds(driver);
-            //6) Enter correct email address and password
-            signUpLoginPage.emailLogin().sendKeys(email);
-            signUpLoginPage.passwordLogin().sendKeys(password);
-        } else {
-            driver.quit();
-        }
-
+        //6) Enter correct email address and password
+        signUpLoginPageServices.enterEmailAndPassword(email, password);
+        
         //7) Click 'login' button
-        AdHandlerUtility.safeClick(driver, signUpLoginPage.loginButton());
+        signUpLoginPageServices.clickLoginButton();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         AdHandlerUtility.hideAds(driver);
 
         //8) Verify that 'Logged in as username' is visible
-        if(loggedInPage.loggedInAsUser().isDisplayed() == true){
+        wait.until(ExpectedConditions.visibilityOf(loggedInPageUI.loggedInAsUser()));
 
-            //9) Click 'Delete Account' button
-            WebElement btnDelete = loggedInPage.deleteAccount();
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", btnDelete);
-
-        } else {
-            driver.quit();
-        }
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         AdHandlerUtility.hideAds(driver);
+        //9) Click 'Delete button'
+        loggedInPageServices.clickDelete();
 
         //10) Verify that 'ACCOUNT DELETED!' is visible
-        Assert.assertEquals(true, accountDeleted.accountDeletedText().isDisplayed());
+        Assert.assertEquals(true, accountDeletedUI.accountDeletedText().isDisplayed());
 
     }
 

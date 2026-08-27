@@ -1,12 +1,17 @@
-package page_objects.signup_workflow;
+package page_objects.signup_workflow.UI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AccountInformation {
+public class AccountInformationUI {
 
     private WebDriver driver;
+
+    public AccountInformationUI(WebDriver driver){
+
+        this.driver = driver;
+    }
 
     public WebDriver getDriver() {
         return driver;

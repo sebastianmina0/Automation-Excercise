@@ -1,39 +1,45 @@
-package page_objects.delete_account;
+package page_objects.signup_workflow.UI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * AccountDeleted
+ * AccountCreated
  */
-public class AccountDeleted {
+public class AccountCreatedUI {
 
     private WebDriver driver;
+
+    public AccountCreatedUI(WebDriver driver){
+        this.driver = driver;
+    }
 
     public WebDriver getDriver() {
         return driver;
     }
+
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
-    
+
     /**
-     * Method that returns Account Deleted element
+     * Method that returns Account Created element
      * @return WebElement
      */
-    public WebElement accountDeletedText(){
+    public WebElement accountCreated(){
 
-        return getDriver().findElement(By.xpath("//b[contains(text(),'Account Deleted')]"));
+        return getDriver().findElement(By.xpath("//b[contains(text(),'Account Created')]"));
     }
 
     /**
      * Method that returns button element
-     * @return Button
+     * @return button
      */
     public WebElement continueButton(){
         
         return getDriver().findElement(By.cssSelector("a[data-qa='continue-button']"));
     }
+
 
 }

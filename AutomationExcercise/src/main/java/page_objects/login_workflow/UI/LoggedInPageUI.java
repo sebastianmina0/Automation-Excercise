@@ -1,19 +1,21 @@
-package page_objects.main_page;
-
-import java.time.Duration;
+package page_objects.login_workflow.UI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import page_objects.handler_classes.AdHandlerUtility;
-
-public class MainPage {
+/**
+ * 
+ * LoggedInPage
+ */
+public class LoggedInPageUI {
 
     private WebDriver driver;
-    private WebDriverWait wait;
+
+    public LoggedInPageUI(WebDriver driver){
+        
+        this.driver = driver;
+    }
 
     public WebDriver getDriver() {
         return driver;
@@ -21,9 +23,6 @@ public class MainPage {
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
-
-    //Main Page URL: https://automationexercise.com
-    //Header Elements
 
     /**
      * Method that returns a button element
@@ -47,9 +46,27 @@ public class MainPage {
      * Method that returns a button element
      * @return Button
      */
-    public WebElement singUp(){
+    public WebElement cartButton(){
 
-        return getDriver().findElement(By.cssSelector("a[href='/login']"));
+        return getDriver().findElement(By.cssSelector("body > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)"));
+    }
+
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
+    public WebElement logOut(){
+
+        return getDriver().findElement(By.cssSelector("a[href='/logout']"));
+    }
+
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
+    public WebElement deleteAccount(){
+
+        return getDriver().findElement(By.cssSelector("a[href='/delete_account']"));
     }
 
     /**
@@ -85,6 +102,14 @@ public class MainPage {
      */
     public WebElement contactUs(){
         return getDriver().findElement(By.cssSelector("a[href='/contact_us']"));
+    }
+
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
+    public WebElement loggedInAsUser(){
+        return getDriver().findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a"));
     }
 
     //Carousel Elements
@@ -345,16 +370,6 @@ public class MainPage {
 
         return getDriver().findElement(By.cssSelector("#subscribe"));
     }
+    
 
-    //Services
-
-    public void homePageVerifying(){
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        //3) Verify that home page is visible succesfully
-        AdHandlerUtility.hideAds(driver);
-        WebElement signUpButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href='/login']")));
-        //4) Click on 'Signup / Login' button
-        AdHandlerUtility.safeClick(driver, signUpButton);
-    }
 }

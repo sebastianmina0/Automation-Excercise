@@ -1,23 +1,26 @@
-package page_objects.login_workflow;
+package page_objects.main_page.UI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-/**
- * 
- * LoggedInPage
- */
-public class LoggedInPage {
+public class MainPageUI {
 
     private WebDriver driver;
 
+    public MainPageUI(WebDriver driver) {
+        this.driver = driver;
+    }
+    
     public WebDriver getDriver() {
         return driver;
     }
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
+
+    //Main Page URL: https://automationexercise.com
+    //Header Elements
 
     /**
      * Method that returns a button element
@@ -41,27 +44,9 @@ public class LoggedInPage {
      * Method that returns a button element
      * @return Button
      */
-    public WebElement cartButton(){
+    public WebElement singUp(){
 
-        return getDriver().findElement(By.cssSelector("body > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)"));
-    }
-
-    /**
-     * Method that returns a button element
-     * @return Button
-     */
-    public WebElement logOut(){
-
-        return getDriver().findElement(By.cssSelector("a[href='/logout']"));
-    }
-
-    /**
-     * Method that returns a button element
-     * @return Button
-     */
-    public WebElement deleteAccount(){
-
-        return getDriver().findElement(By.cssSelector("a[href='/delete_account']"));
+        return getDriver().findElement(By.cssSelector("a[href='/login']"));
     }
 
     /**
@@ -97,14 +82,6 @@ public class LoggedInPage {
      */
     public WebElement contactUs(){
         return getDriver().findElement(By.cssSelector("a[href='/contact_us']"));
-    }
-
-    /**
-     * Method that returns a button element
-     * @return Button
-     */
-    public WebElement loggedInAsUser(){
-        return getDriver().findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a"));
     }
 
     //Carousel Elements
@@ -365,6 +342,4 @@ public class LoggedInPage {
 
         return getDriver().findElement(By.cssSelector("#subscribe"));
     }
-    
-
 }
