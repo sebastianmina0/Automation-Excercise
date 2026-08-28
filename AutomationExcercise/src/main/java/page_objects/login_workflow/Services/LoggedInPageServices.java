@@ -32,5 +32,15 @@ public class LoggedInPageServices {
         js.executeScript("arguments[0].click();", btnDelete);
     }
 
+    /**
+     * Method that clicks logout button
+     */
+    public void clickLogout(){
+
+        WebElement btnLogout = loggedInPageUI.logOut();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnLogout);
+
+    }
 
 }
