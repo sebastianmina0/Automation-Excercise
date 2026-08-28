@@ -4,13 +4,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
+import page_objects.test_data.StaticData;
 
 public class LogoutUser extends SetUpEnvironment {
-
-    //Information
-    private final String email = "user@test.user";
-    private final String password = "user@test.user";
-
 
     @Test
     public void logOutUser(){
@@ -29,7 +25,7 @@ public class LogoutUser extends SetUpEnvironment {
 
         //6) Enter correct email and password
         AdHandlerUtility.hideAds(driver);
-        signUpLoginPageServices.enterEmailAndPassword(email, password);
+        signUpLoginPageServices.enterEmailAndPassword(StaticData.logoutEmail, StaticData.logoutPassword);
 
         //7) Click 'login' button
         AdHandlerUtility.hideAds(driver);

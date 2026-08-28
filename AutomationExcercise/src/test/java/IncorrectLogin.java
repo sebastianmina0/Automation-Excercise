@@ -6,16 +6,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
+import page_objects.test_data.StaticData;
 
 /**
  * This class is created to test and incorrect login workflow
  * IncorrectLogin
  */
 public class IncorrectLogin extends SetUpEnvironment{
-
-    //Incorrect Login Information
-    private final String email = "sebastianmina654@gmail.com";
-    private final String password = "password";
 
     @Test
     public void incorrectLogin(){
@@ -32,7 +29,7 @@ public class IncorrectLogin extends SetUpEnvironment{
 
         AdHandlerUtility.hideAds(driver);
         //6) Enter incorrect email address and password
-        signUpLoginPageServices.enterEmailAndPassword(email, password);
+        signUpLoginPageServices.enterEmailAndPassword(StaticData.getIncorrectEmail(), StaticData.geIncorrectPassword());
   
         AdHandlerUtility.hideAds(driver);
         //7) Click login button

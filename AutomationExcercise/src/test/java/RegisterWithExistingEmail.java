@@ -5,13 +5,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
+import page_objects.test_data.StaticData;
 
 
 public class RegisterWithExistingEmail extends SetUpEnvironment {
-
-    //Information
-    private final String name = "test1";
-    private final String email = "user@test.user";
 
     @Test
     public void registerWithExistingEmail() throws InterruptedException{
@@ -30,7 +27,7 @@ public class RegisterWithExistingEmail extends SetUpEnvironment {
 
         //6) Enter name and already registered email address
         AdHandlerUtility.hideAds(driver);
-        signUpLoginPageServices.enterNameAndEmail(name, email);
+        signUpLoginPageServices.enterNameAndEmail(StaticData.getName(), StaticData.getExistingEmail());
 
         //7) Click 'Signup' button
         AdHandlerUtility.hideAds(driver);

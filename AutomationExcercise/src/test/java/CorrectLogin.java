@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
+import page_objects.test_data.StaticData;
 
 
 /**
@@ -13,10 +14,6 @@ import page_objects.setUp.SetUpEnvironment;
  * CorrectLogin
  */
 public class CorrectLogin extends SetUpEnvironment{
-
-    //Login information
-    private final String email = "user@user.user.use";
-    private final String password = "password43271234";
 
     /**
      * Test Case 2 -  Login User with correct email and password
@@ -35,7 +32,7 @@ public class CorrectLogin extends SetUpEnvironment{
         wait.until(ExpectedConditions.visibilityOf(signUpLoginPageUI.loginText()));
 
         //6) Enter correct email address and password
-        signUpLoginPageServices.enterEmailAndPassword(email, password);
+        signUpLoginPageServices.enterEmailAndPassword(StaticData.getCorrectEmail(), StaticData.getCorrectPassword());
         
         //7) Click 'login' button
         signUpLoginPageServices.clickLoginButton();

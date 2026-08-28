@@ -21,6 +21,8 @@ import page_objects.signup_workflow.Services.SignUpLoginPageServices;
 import page_objects.signup_workflow.UI.AccountCreatedUI;
 import page_objects.signup_workflow.UI.AccountInformationUI;
 import page_objects.signup_workflow.UI.SignUpLoginPageUI;
+import page_objects.test_data.StaticData;
+import page_objects.test_data.TestDataGenerator;
 
 public class SetUpEnvironment {
 
@@ -33,8 +35,8 @@ public class SetUpEnvironment {
     protected SignUpLoginPageUI signUpLoginPageUI;
     protected LoggedInPageUI loggedInPageUI;
     protected AccountDeletedUI accountDeletedUI;
-    protected AccountInformationUI accountInformationUI;
     protected AccountCreatedUI accountCreatedUI;
+    protected AccountInformationUI accountInformationUI;
 
     // Services
     protected MainPageServices mainPageServices;
@@ -43,6 +45,10 @@ public class SetUpEnvironment {
     protected AccountDeletedServices accountDeletedServices;
     protected AccountInformationServices accountInformationServices;
     protected AccountCreatedServices accountCreatedServices;
+
+    //TestData generator
+    protected TestDataGenerator testDataGenerator;
+    protected StaticData staticData;
 
     @Before
     //1) Launch browser

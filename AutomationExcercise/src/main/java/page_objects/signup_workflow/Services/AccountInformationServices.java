@@ -29,11 +29,7 @@ public class AccountInformationServices {
      * @param month
      * @param year
      */
-    public void fillInformationDetails(String name, String password, String day, String month, String year){
-
-
-        accountInformationUI.name().clear();
-        accountInformationUI.name().sendKeys(name);
+    public void fillInformationDetails(String password, String day, String month, String year){
 
         //Setting password
         accountInformationUI.password().sendKeys(password);
@@ -78,13 +74,14 @@ public class AccountInformationServices {
      * @param company
      * @param address
      * @param address2
+     * @param country
      * @param state
      * @param city
      * @param zipCode
      * @param mobileNumber
      */
     public void fillAddressInformationDetails(String firstName, String lastName, String company, String address,
-        String address2, String state, String city, String zipCode, String mobileNumber){
+        String address2, String country, String state, String city, String zipCode, String mobileNumber){
 
 
         accountInformationUI.firstName().sendKeys(firstName);
@@ -93,8 +90,8 @@ public class AccountInformationServices {
         accountInformationUI.address().sendKeys(address);
         accountInformationUI.address2().sendKeys(address2);
 
-        Select country = new Select (accountInformationUI.country());
-        country.selectByValue("Canada");
+        Select selectCountry = new Select (accountInformationUI.country());
+        selectCountry.selectByValue(country);
 
         accountInformationUI.state().sendKeys(state);
         accountInformationUI.city().sendKeys(city);
