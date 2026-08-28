@@ -1,73 +1,21 @@
 
-import java.time.Duration;
-
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.main_page.Services.MainPageServices;
-import page_objects.main_page.UI.MainPageUI;
-import page_objects.signup_workflow.Services.SignUpLoginPageServices;
-import page_objects.signup_workflow.UI.SignUpLoginPageUI;
+import page_objects.setUp.SetUpEnvironment;
 
 /**
  * This class is created to test and incorrect login workflow
  * IncorrectLogin
  */
-public class IncorrectLogin {
-
-    private WebDriver driver;
-    private ChromeOptions options;
-    private String url;
-    private WebDriverWait wait;
-
-    //WebElement variables
-
-    private MainPageUI mainPageUI;
-    private SignUpLoginPageUI signUpLoginPageUI;
-
-    //Services variables
-    private MainPageServices mainPageServices;
-    private SignUpLoginPageServices signUpLoginPageServices;
-
+public class IncorrectLogin extends SetUpEnvironment{
 
     //Incorrect Login Information
     private final String email = "sebastianmina654@gmail.com";
     private final String password = "password";
-
-
-    @Before
-    /**
-     * 1) Launching browser and getting URL
-     * 2) Navigate to url
-     */
-    public void setUp(){
-
-        options = new AdHandlerUtility().hideChromeOptions();
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        
-        url = "https://automationexercise.com";
-
-        mainPageUI = new MainPageUI(driver);
-        mainPageUI.setDriver(driver);
-        mainPageUI.getDriver().get(url);
-
-        signUpLoginPageUI = new SignUpLoginPageUI(driver);
-        signUpLoginPageUI.setDriver(driver);
-
-        mainPageServices = new MainPageServices(driver);
-        signUpLoginPageServices = new SignUpLoginPageServices(driver);
-
-    }
 
     @Test
     public void incorrectLogin(){

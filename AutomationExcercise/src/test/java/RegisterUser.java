@@ -1,51 +1,14 @@
-import java.time.Duration;
-
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import page_objects.delete_account.Services.AccountDeletedServices;
-import page_objects.delete_account.UI.AccountDeletedUI;
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.login_workflow.Services.LoggedInPageServices;
-import page_objects.login_workflow.UI.LoggedInPageUI;
-import page_objects.main_page.Services.MainPageServices;
-import page_objects.main_page.UI.MainPageUI;
-import page_objects.signup_workflow.Services.AccountCreatedServices;
-import page_objects.signup_workflow.Services.AccountInformationServices;
-import page_objects.signup_workflow.Services.SignUpLoginPageServices;
-import page_objects.signup_workflow.UI.AccountCreatedUI;
-import page_objects.signup_workflow.UI.AccountInformationUI;
-import page_objects.signup_workflow.UI.SignUpLoginPageUI;
+import page_objects.setUp.SetUpEnvironment;
+
 /**
  * This class is created for register an user in the webpage
  * RegisterUser
  */
-
-public class RegisterUser {
-
-    //WebElement variables
-    private WebDriver driver;
-    private ChromeOptions options;
-    private MainPageUI mainPageUI;
-    private SignUpLoginPageUI signUpLoginPageUI;
-    private AccountInformationUI accountInformationUI;
-    private AccountCreatedUI accountCreatedUI;
-    private LoggedInPageUI loggedInPageUI;
-    private AccountDeletedUI accountDeletedUI;
-    private String url;
-
-    //Services variables
-    private MainPageServices mainPageServices;
-    private SignUpLoginPageServices signUpLoginPageServices;
-    private AccountInformationServices accountInformationServices;
-    private AccountCreatedServices accountCreatedServices;
-    private LoggedInPageServices loggedInPageServices;
-    private AccountDeletedServices accountDeletedServices;
+public class RegisterUser extends SetUpEnvironment {
 
     //Account information variables
     private final String name = "prueba1";
@@ -65,54 +28,6 @@ public class RegisterUser {
     private final String city = "Bogota";
     private final String zipCode = "1111111";
     private final String mobileNumber = "3334445566";
-
-    //Wait variable
-    private WebDriverWait wait;
-
-    @Before
-    /**
-     * 1) Launching browser and getting URL
-     * 2) Navigate to url
-     */
-    public void setUp() {
-
-        options = new AdHandlerUtility().hideChromeOptions();
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-       
-        url = "https://automationexercise.com";
-
-        //Initialize WebElements
-        mainPageUI = new MainPageUI(driver);
-        mainPageUI.setDriver(driver);
-        mainPageUI.getDriver().get(url);
-
-        signUpLoginPageUI = new SignUpLoginPageUI(driver);
-        signUpLoginPageUI.setDriver(driver);
-
-        accountInformationUI = new AccountInformationUI(driver);
-        accountInformationUI.setDriver(driver);
-
-        accountCreatedUI = new AccountCreatedUI(driver);
-        accountCreatedUI.setDriver(driver);
-
-        loggedInPageUI = new LoggedInPageUI(driver);
-        loggedInPageUI.setDriver(driver);
-
-        accountDeletedUI = new AccountDeletedUI(driver);
-        accountDeletedUI.setDriver(driver);
-
-        //Intialize Services
-        mainPageServices = new MainPageServices(driver);
-        signUpLoginPageServices = new SignUpLoginPageServices(driver);
-        accountInformationServices = new AccountInformationServices(driver);
-        accountCreatedServices = new AccountCreatedServices(driver);
-        loggedInPageServices = new LoggedInPageServices(driver);
-        accountDeletedServices = new AccountDeletedServices(driver);
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-    }
 
     /**
      * Test Case #1 - Register User
