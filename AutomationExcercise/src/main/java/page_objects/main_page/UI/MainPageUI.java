@@ -8,13 +8,26 @@ public class MainPageUI {
 
     private WebDriver driver;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public MainPageUI(WebDriver driver) {
         this.driver = driver;
     }
     
+    /**
+     * Get driver
+     * @return
+     */
     public WebDriver getDriver() {
         return driver;
     }
+
+    /**
+     * Set driver
+     * @param driver
+     */
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }

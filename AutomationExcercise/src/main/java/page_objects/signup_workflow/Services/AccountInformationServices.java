@@ -11,12 +11,24 @@ public class AccountInformationServices {
     private final WebDriver driver;
     private final AccountInformationUI accountInformationUI;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public AccountInformationServices(WebDriver driver){
 
         this.driver = driver;
         accountInformationUI = new AccountInformationUI(driver);
     }
 
+    /**
+     * Method that fills the information in the form
+     * @param name
+     * @param password
+     * @param day
+     * @param month
+     * @param year
+     */
     public void fillInformationDetails(String name, String password, String day, String month, String year){
 
 
@@ -41,18 +53,36 @@ public class AccountInformationServices {
         yearA.selectByValue(year);
     }
 
+    /**
+     * Method that clicks news letter button
+     */
     public void clickNewsLetter(){
 
 
         AdHandlerUtility.safeClick(driver, accountInformationUI.newsLetter());
     }
 
+    /**
+     * Method that clicks Special Offers button
+     */
     public void clickSpecialOffers(){
 
 
         AdHandlerUtility.safeClick(driver, accountInformationUI.specialOffers());
     }
 
+    /**
+     * Method that fills the information in the form
+     * @param firstName
+     * @param lastName
+     * @param company
+     * @param address
+     * @param address2
+     * @param state
+     * @param city
+     * @param zipCode
+     * @param mobileNumber
+     */
     public void fillAddressInformationDetails(String firstName, String lastName, String company, String address,
         String address2, String state, String city, String zipCode, String mobileNumber){
 
@@ -72,6 +102,9 @@ public class AccountInformationServices {
         accountInformationUI.mobileNumber().sendKeys(mobileNumber);
     }
 
+    /**
+     * Method that clicks create account button
+     */
     public void clickCreateAccount(){
 
         AdHandlerUtility.safeClick(driver, accountInformationUI.createAccount());

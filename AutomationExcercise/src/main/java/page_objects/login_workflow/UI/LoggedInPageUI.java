@@ -12,14 +12,27 @@ public class LoggedInPageUI {
 
     private WebDriver driver;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public LoggedInPageUI(WebDriver driver){
         
         this.driver = driver;
     }
 
+    /**
+     * Get driver
+     * @return
+     */
     public WebDriver getDriver() {
         return driver;
     }
+
+    /**
+     * Set driver
+     * @param driver
+     */
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }

@@ -11,14 +11,26 @@ public class AccountCreatedUI {
 
     private WebDriver driver;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public AccountCreatedUI(WebDriver driver){
         this.driver = driver;
     }
 
+    /**
+     * Get driver
+     * @return
+     */
     public WebDriver getDriver() {
         return driver;
     }
 
+    /**
+     * Set driver
+     * @param driver
+     */
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }

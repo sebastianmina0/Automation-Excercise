@@ -11,12 +11,20 @@ public class LoggedInPageServices {
     private final WebDriver driver;
     private final LoggedInPageUI loggedInPageUI;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public LoggedInPageServices(WebDriver driver){
 
         this.driver = driver;
         loggedInPageUI = new LoggedInPageUI(driver);
     }
 
+    /**
+     * Method that clicks delete button in Main Page when an user
+     * is logged
+     */
     public void clickDelete(){
 
         WebElement btnDelete = loggedInPageUI.deleteAccount();

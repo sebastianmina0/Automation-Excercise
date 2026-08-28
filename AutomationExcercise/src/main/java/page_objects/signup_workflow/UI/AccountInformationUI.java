@@ -8,14 +8,26 @@ public class AccountInformationUI {
 
     private WebDriver driver;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public AccountInformationUI(WebDriver driver){
 
         this.driver = driver;
     }
 
+    /**
+     * Get driver
+     */
     public WebDriver getDriver() {
         return driver;
     }
+
+    /**
+     * Set driver
+     * @param driver
+     */
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }

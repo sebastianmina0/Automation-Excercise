@@ -11,11 +11,18 @@ public class AccountDeletedServices {
     private final WebDriver driver;
     private final AccountDeletedUI accountDeletedUI;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public AccountDeletedServices(WebDriver driver){
         this.driver = driver;
         this.accountDeletedUI = new AccountDeletedUI(driver);
     }
 
+    /**
+     * Method that clicks continue button in Account Deleted page
+     */
     public void clickContinue(){
 
         WebElement btnContinue = accountDeletedUI.continueButton();

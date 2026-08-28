@@ -11,13 +11,26 @@ public class AccountDeletedUI {
 
     private WebDriver driver;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public AccountDeletedUI(WebDriver driver){
         this.driver = driver;
     }
 
+    /**
+     * Get Driver
+     * @return
+     */
     public WebDriver getDriver() {
         return driver;
     }
+
+    /**
+     * Set driver
+     * @param driver
+     */
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }

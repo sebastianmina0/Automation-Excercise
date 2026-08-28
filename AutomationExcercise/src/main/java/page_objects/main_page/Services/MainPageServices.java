@@ -10,15 +10,19 @@ public class MainPageServices {
     private final WebDriver driver;
     private final MainPageUI mainPageUI;
 
-
-    //Services
-
-public MainPageServices(WebDriver driver) {
+    /**
+     * Constructor
+     * @param driver
+     */
+    public MainPageServices(WebDriver driver) {
     
         this.driver = driver;
         this.mainPageUI = new MainPageUI(driver); 
     }
     
+    /**
+     * Method that clicks SignUp/Login button in Main Page
+     */
     public void clickSingUpButton(){
 
         AdHandlerUtility.safeClick(driver, mainPageUI.singUp());

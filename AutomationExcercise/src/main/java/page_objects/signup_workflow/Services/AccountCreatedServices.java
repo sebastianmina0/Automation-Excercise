@@ -11,12 +11,19 @@ public class AccountCreatedServices {
     private final WebDriver driver;
     private final AccountCreatedUI accountCreatedUI;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public AccountCreatedServices(WebDriver driver){
 
         this.driver = driver;
         accountCreatedUI = new AccountCreatedUI(driver);
     }
 
+    /**
+     * Method that clicks continue button
+     */
     public void clickContinue(){
 
         WebElement btnContinue = accountCreatedUI.continueButton();
