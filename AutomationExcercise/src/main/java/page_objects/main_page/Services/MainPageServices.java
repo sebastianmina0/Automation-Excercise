@@ -28,4 +28,9 @@ public class MainPageServices {
         AdHandlerUtility.safeClick(driver, mainPageUI.singUp());
     }
 
+    public void clickContactUsButton(){
+
+        AdHandlerUtility.safeClick(driver, mainPageUI.contactUs());
+    }
+
 }

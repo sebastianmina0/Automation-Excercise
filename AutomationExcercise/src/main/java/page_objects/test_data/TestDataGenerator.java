@@ -147,6 +147,16 @@ public interface TestDataGenerator {
 
         return faker.phoneNumber().toString();
     }
+
+    static String emailSubject(){
+
+        return faker.lorem().sentence(5);
+    }
+
+    static String emailMessage(){
+
+        return faker.lorem().paragraph(1);
+    }
 }
 
 
