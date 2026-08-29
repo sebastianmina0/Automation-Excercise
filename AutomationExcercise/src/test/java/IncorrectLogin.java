@@ -15,6 +15,9 @@ import page_objects.test_data.StaticData;
 public class IncorrectLogin extends SetUpEnvironment{
 
     @Test
+    /**
+     * Test Case 3: Login User with incorrect email and password
+    */
     public void incorrectLogin(){
 
         AdHandlerUtility.hideAds(driver);

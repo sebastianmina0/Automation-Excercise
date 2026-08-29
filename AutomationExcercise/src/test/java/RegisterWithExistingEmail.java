@@ -7,10 +7,18 @@ import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.StaticData;
 
-
+/**
+ * This class is created to verify that is not
+ * possible to register with an existing email
+ * RegisterWithExistingEmail
+ */
 public class RegisterWithExistingEmail extends SetUpEnvironment {
 
     @Test
+    /**
+     * Test Case 5: Register User with existing email
+     * @throws InterruptedException
+     */
     public void registerWithExistingEmail() throws InterruptedException{
 
         //3) Verify that home page is visible successfully

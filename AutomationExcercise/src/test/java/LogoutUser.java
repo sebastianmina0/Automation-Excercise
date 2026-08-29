@@ -6,9 +6,16 @@ import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.StaticData;
 
+/**
+ * This class is created to logut with an existing user
+ * LogoutUser
+ */
 public class LogoutUser extends SetUpEnvironment {
 
     @Test
+    /**
+     * Test Case 4: Logout User
+     */
     public void logOutUser(){
 
         //3) Verify that home page is visible successfully

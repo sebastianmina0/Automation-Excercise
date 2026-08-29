@@ -8,9 +8,15 @@ import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.TestDataGenerator;
 
+/**
+ * This class is created to complete Contact Uf form
+ */
 public class ContactUsForm extends SetUpEnvironment {
 
     @Test
+    /**
+     * Test Case 6: Contact Us Form
+     */
     public void fillContactUsForm(){
 
         AdHandlerUtility.hideAds(driver);

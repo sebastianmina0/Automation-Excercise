@@ -16,7 +16,7 @@ import page_objects.test_data.StaticData;
 public class CorrectLogin extends SetUpEnvironment{
 
     /**
-     * Test Case 2 -  Login User with correct email and password
+     * Test Case 2: Login User with correct email and password
      */
     @Test
     public void userLogin(){
