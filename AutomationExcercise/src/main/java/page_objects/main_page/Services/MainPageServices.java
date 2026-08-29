@@ -1,6 +1,8 @@
 package page_objects.main_page.Services;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.main_page.UI.MainPageUI;
@@ -31,6 +33,13 @@ public class MainPageServices {
     public void clickContactUsButton(){
 
         AdHandlerUtility.safeClick(driver, mainPageUI.contactUs());
+    }
+
+    public void clickTestCasesButton(){
+
+        WebElement btnTestCases = mainPageUI.testCases();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnTestCases);
     }
 
 }

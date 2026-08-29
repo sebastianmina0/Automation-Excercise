@@ -68,7 +68,7 @@ public class MainPageUI {
      */
     public WebElement testCases(){
 
-        return getDriver().findElement(By.cssSelector("header[id='header'] li:nth-child(5) a:nth-child(1)"));
+        return getDriver().findElement(By.cssSelector("a[href='/test_cases']"));
     }
 
     /**
