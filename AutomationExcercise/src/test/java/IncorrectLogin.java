@@ -32,7 +32,7 @@ public class IncorrectLogin extends SetUpEnvironment{
 
         AdHandlerUtility.hideAds(driver);
         //6) Enter incorrect email address and password
-        signUpLoginPageServices.enterEmailAndPassword(StaticData.getIncorrectEmail(), StaticData.geIncorrectPassword());
+        signUpLoginPageServices.enterEmailAndPassword(StaticData.incorrectEmail, StaticData.incorrectPassword);
   
         AdHandlerUtility.hideAds(driver);
         //7) Click login button

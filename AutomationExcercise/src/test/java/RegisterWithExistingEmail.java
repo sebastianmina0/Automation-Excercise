@@ -35,7 +35,7 @@ public class RegisterWithExistingEmail extends SetUpEnvironment {
 
         //6) Enter name and already registered email address
         AdHandlerUtility.hideAds(driver);
-        signUpLoginPageServices.enterNameAndEmail(StaticData.getName(), StaticData.getExistingEmail());
+        signUpLoginPageServices.enterNameAndEmail(StaticData.name, StaticData.existingEmail);
 
         //7) Click 'Signup' button
         AdHandlerUtility.hideAds(driver);

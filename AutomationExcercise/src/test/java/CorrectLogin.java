@@ -25,14 +25,17 @@ public class CorrectLogin extends SetUpEnvironment{
         //3) Verify that home page is visible succesfully
         wait.until(ExpectedConditions.visibilityOf(mainPageUI.singUp()));   
 
+        AdHandlerUtility.hideAds(driver);
         //4) Click on 'Signup / Login' button
         mainPageServices.clickSingUpButton();
 
+        AdHandlerUtility.hideAds(driver);
         //5) Verify 'Login to your account' is visible
         wait.until(ExpectedConditions.visibilityOf(signUpLoginPageUI.loginText()));
 
+        AdHandlerUtility.hideAds(driver);
         //6) Enter correct email address and password
-        signUpLoginPageServices.enterEmailAndPassword(StaticData.getCorrectEmail(), StaticData.getCorrectPassword());
+        signUpLoginPageServices.enterEmailAndPassword(StaticData.correctEmail, StaticData.correctPassword);
         
         //7) Click 'login' button
         signUpLoginPageServices.clickLoginButton();
