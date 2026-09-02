@@ -42,4 +42,12 @@ public class MainPageServices {
         js.executeScript("arguments[0].click();", btnTestCases);
     }
 
+    public void clickProductsButton(){
+
+        WebElement btnProducts = mainPageUI.productsButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnProducts);
+
+    }
+
 }

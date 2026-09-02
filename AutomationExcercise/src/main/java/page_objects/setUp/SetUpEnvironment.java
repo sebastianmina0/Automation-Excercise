@@ -17,6 +17,10 @@ import page_objects.login_workflow.Services.LoggedInPageServices;
 import page_objects.login_workflow.UI.LoggedInPageUI;
 import page_objects.main_page.Services.MainPageServices;
 import page_objects.main_page.UI.MainPageUI;
+import page_objects.products_workflow.Services.ProductsPageServices;
+import page_objects.products_workflow.Services.Rs500Services;
+import page_objects.products_workflow.UI.ProductsPageUI;
+import page_objects.products_workflow.UI.Rs500UI;
 import page_objects.signup_workflow.Services.AccountCreatedServices;
 import page_objects.signup_workflow.Services.AccountInformationServices;
 import page_objects.signup_workflow.Services.SignUpLoginPageServices;
@@ -42,6 +46,8 @@ public class SetUpEnvironment {
     protected AccountCreatedUI accountCreatedUI;
     protected AccountInformationUI accountInformationUI;
     protected ContactUsUI contactUsUI;
+    protected ProductsPageUI productsPageUI;
+    protected Rs500UI rs500UI;
 
     // Services
     protected MainPageServices mainPageServices;
@@ -51,6 +57,8 @@ public class SetUpEnvironment {
     protected AccountInformationServices accountInformationServices;
     protected AccountCreatedServices accountCreatedServices;
     protected ContactUsServices contactUsServices;
+    protected ProductsPageServices productsPageServices;
+    protected Rs500Services rs500Services;
 
     //TestData
     protected TestDataGenerator testDataGenerator;
@@ -87,6 +95,12 @@ public class SetUpEnvironment {
         contactUsUI = new ContactUsUI(driver);
         contactUsUI.setDriver(driver);
 
+        productsPageUI = new ProductsPageUI(driver);
+        productsPageUI.setDriver(driver);
+
+        rs500UI = new Rs500UI(driver);
+        rs500UI.setDriver(driver);
+
         mainPageServices = new MainPageServices(driver);
         signUpLoginPageServices = new SignUpLoginPageServices(driver);
         loggedInPageServices = new LoggedInPageServices(driver);
@@ -94,6 +108,8 @@ public class SetUpEnvironment {
         accountCreatedServices = new AccountCreatedServices(driver);
         accountDeletedServices = new AccountDeletedServices(driver);
         contactUsServices = new ContactUsServices(driver);
+        productsPageServices = new ProductsPageServices(driver);
+        rs500Services = new Rs500Services(driver);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
