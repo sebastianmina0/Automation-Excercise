@@ -17,6 +17,9 @@ public interface StaticData {
     String name = "test1";
     String existingEmail = "user@test.user";
 
+    //Search product
+    String productName = "Top";
+
     /**
      * Return an email
      * @return Email

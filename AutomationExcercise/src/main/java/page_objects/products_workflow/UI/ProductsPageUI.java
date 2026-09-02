@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 public class ProductsPageUI {
 
     private WebDriver driver;
+    private By itemsSearched;
 
     /**
      * Constructor
@@ -54,6 +55,26 @@ public class ProductsPageUI {
     public WebElement allProducts(){
 
         return driver.findElement(By.cssSelector(".features_items"));
+    }
+
+    public WebElement searchTextBox(){
+
+        return driver.findElement(By.cssSelector("input[id='search_product']"));
+    }
+
+    public WebElement submitSearch(){
+
+        return driver.findElement(By.cssSelector("button[id='submit_search']"));
+    }
+
+    public WebElement searchedProducts(){
+
+        return driver.findElement(By.xpath("//h2[contains(text(),'Searched Products')]"));
+    }
+
+    public WebElement featureItems(){
+
+        return driver.findElement(By.cssSelector(".feature_items"));
     }
 
 
