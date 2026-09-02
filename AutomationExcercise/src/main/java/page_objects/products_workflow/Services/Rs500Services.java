@@ -9,6 +9,10 @@ public class Rs500Services {
     private final WebDriver driver;
     private final Rs500UI rs500UI;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public Rs500Services(WebDriver driver){
 
         this.driver = driver;

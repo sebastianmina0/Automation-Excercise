@@ -74,21 +74,37 @@ public class SignUpLoginPageUI {
 
     //Login Form
 
+    /**
+     * Method that returns a text box element
+     * @return Textbox
+     */
     public WebElement emailLogin(){
 
         return getDriver().findElement(By.cssSelector("input[data-qa='login-email'"));
     }
 
+    /**
+     * Method that returns a text box element
+     * @return Textbox
+     */
     public WebElement passwordLogin(){
 
         return getDriver().findElement(By.cssSelector("input[data-qa='login-password'"));
     }
 
+        /**
+     * Method that returns a text
+     * @return Text
+     */
     public WebElement loginText(){
 
         return getDriver().findElement(By.xpath("//h2[contains(text(),'Login to your account')]"));
     }
 
+    /**
+     * Method that returns a button
+     * @return button
+     */
     public WebElement loginButton(){
 
         return getDriver().findElement(By.cssSelector("button[data-qa='login-button']"));

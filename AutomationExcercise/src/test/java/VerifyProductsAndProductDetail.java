@@ -6,10 +6,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 
+/**
+ * This class is created to verify products page and
+ * Rs500 page
+ * VerifyProductsAndProductDetail
+ */
 public class VerifyProductsAndProductDetail extends SetUpEnvironment{
 
     @Test
 
+    /**
+     * Test Case 8: Verify All Products and product detail page
+     */
     public void verifyProductsAndDetails(){
 
         AdHandlerUtility.hideAds(driver);

@@ -30,6 +30,11 @@ import page_objects.signup_workflow.UI.SignUpLoginPageUI;
 import page_objects.test_data.StaticData;
 import page_objects.test_data.TestDataGenerator;
 
+/**
+ * This class is created to setup all the classes that
+ * this project needs to run the tests
+ * SetUpEnvironment
+ */
 public class SetUpEnvironment {
 
     protected WebDriver driver;
@@ -117,7 +122,10 @@ public class SetUpEnvironment {
         filePath = projectPath + "/src/main/resources/TestDataFile.txt";
 
     }
-    
+
+    /**
+     * Method that closes the environment
+     */
     public void closeEnvironment() {
         if (driver != null) {
             driver.quit();
