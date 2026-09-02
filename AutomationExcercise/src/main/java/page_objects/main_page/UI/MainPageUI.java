@@ -381,4 +381,9 @@ public class MainPageUI {
 
         return driver.findElement(By.id("success-subscribe"));
     }
+
+    public WebElement mainRs500ViewProduct(){
+
+        return driver.findElement(By.cssSelector("a[href='/product_details/1']"));
+    }
 }

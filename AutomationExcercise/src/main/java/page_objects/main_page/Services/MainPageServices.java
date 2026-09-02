@@ -90,4 +90,15 @@ public class MainPageServices {
 
     }
 
+    /**
+     * Click view product of Rs500
+     */
+    public void clickRs500ViewProduct(){
+
+        WebElement btnView = mainPageUI.mainRs500ViewProduct();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnView);
+
+    }
+
 }

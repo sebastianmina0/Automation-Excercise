@@ -47,6 +47,33 @@ public class Rs500UI {
 
         return driver.findElement(By.cssSelector(".product-information"));
     }
-    
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement rs500Quantity(){
+
+        return driver.findElement(By.cssSelector("input[id='quantity']"));
+    }
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement addToCart(){
+
+        return driver.findElement(By.cssSelector(".btn.btn-default.cart"));
+    }
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement viewCart(){
+
+        return driver.findElement(By.cssSelector("a[href='/view_cart']"));
+        
+    }
 
 }

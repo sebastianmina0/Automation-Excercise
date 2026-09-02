@@ -17,7 +17,10 @@ public interface StaticData {
     String name = "test1";
     String existingEmail = "user@test.user";
 
-    //Search product
+    //TestData test case #9
     String productName = "Top";
+
+    //TestData test case #13
+    String quantity = "4";
 
 }
