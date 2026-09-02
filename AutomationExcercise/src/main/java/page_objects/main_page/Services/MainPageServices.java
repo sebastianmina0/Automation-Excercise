@@ -64,4 +64,12 @@ public class MainPageServices {
 
     }
 
+    public void clickCartbutton(){
+
+        WebElement btnCart = mainPageUI.cartButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnCart);
+
+    }
+
 }

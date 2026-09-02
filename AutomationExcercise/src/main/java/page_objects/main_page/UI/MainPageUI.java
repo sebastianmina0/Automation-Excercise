@@ -52,7 +52,15 @@ public class MainPageUI {
 
         return getDriver().findElement(By.cssSelector("a[href='/products']"));
     }
+    
+    /**
+     * Method that returns a button element
+     * @return Button
+     */
+    public WebElement cartButton(){
 
+        return driver.findElement(By.cssSelector("a[href='/view_cart']"));
+    }
     /**
      * Method that returns a button element
      * @return Button

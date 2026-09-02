@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import page_objects.cart_workflow.Services.CartServices;
+import page_objects.cart_workflow.UI.CartUI;
 import page_objects.contact_us_workflow.Services.ContactUsServices;
 import page_objects.contact_us_workflow.UI.ContactUsUI;
 import page_objects.delete_account.Services.AccountDeletedServices;
@@ -53,6 +55,7 @@ public class SetUpEnvironment {
     protected ContactUsUI contactUsUI;
     protected ProductsPageUI productsPageUI;
     protected Rs500UI rs500UI;
+    protected CartUI cartUI;
 
     // Services
     protected MainPageServices mainPageServices;
@@ -64,6 +67,7 @@ public class SetUpEnvironment {
     protected ContactUsServices contactUsServices;
     protected ProductsPageServices productsPageServices;
     protected Rs500Services rs500Services;
+    protected CartServices cartServices;
 
     //TestData
     protected TestDataGenerator testDataGenerator;
@@ -106,6 +110,9 @@ public class SetUpEnvironment {
         rs500UI = new Rs500UI(driver);
         rs500UI.setDriver(driver);
 
+        cartUI = new CartUI(driver);
+        cartUI.setDriver(driver);
+
         mainPageServices = new MainPageServices(driver);
         signUpLoginPageServices = new SignUpLoginPageServices(driver);
         loggedInPageServices = new LoggedInPageServices(driver);
@@ -115,6 +122,7 @@ public class SetUpEnvironment {
         contactUsServices = new ContactUsServices(driver);
         productsPageServices = new ProductsPageServices(driver);
         rs500Services = new Rs500Services(driver);
+        cartServices = new CartServices(driver);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
