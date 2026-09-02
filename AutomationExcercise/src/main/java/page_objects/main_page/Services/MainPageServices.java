@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.main_page.UI.MainPageUI;
+import page_objects.test_data.TestDataGenerator;
 
 public class MainPageServices {
 
@@ -47,6 +48,19 @@ public class MainPageServices {
         WebElement btnProducts = mainPageUI.productsButton();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", btnProducts);
+
+    }
+
+    public void enterSubscriptionEmail(){
+
+        mainPageUI.subscription().sendKeys(TestDataGenerator.newEmail());
+    }
+
+    public void clickSubscriptionArrow(){
+
+        WebElement btnSubscribe = mainPageUI.subscriptionArrow();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnSubscribe);
 
     }
 

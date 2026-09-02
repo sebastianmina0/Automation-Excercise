@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 public class ProductsPageUI {
 
     private WebDriver driver;
-    private By itemsSearched;
 
     /**
      * Constructor

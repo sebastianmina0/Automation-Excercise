@@ -348,11 +348,29 @@ public class MainPageUI {
     }
 
     /**
+     * Returns a text
+     * @return Text
+     */
+    public WebElement subscriptionText(){
+
+        return driver.findElement(By.xpath("//h2[contains(text(),'Subscription')]"));
+    }
+
+    /**
      * Method that returns a button element
      * @return Button
      */
     public WebElement subscriptionArrow(){
 
         return getDriver().findElement(By.cssSelector("#subscribe"));
+    }
+
+    /**
+     * Returns a text
+     * @return Text
+     */
+    public WebElement successSubscribe(){
+
+        return driver.findElement(By.id("success-subscribe"));
     }
 }
