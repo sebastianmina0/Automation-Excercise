@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import page_objects.products_workflow.UI.ProductsPageUI;
 import page_objects.test_data.StaticData;
@@ -14,6 +15,7 @@ public class ProductsPageServices {
 
     private final WebDriver driver;
     private final ProductsPageUI productsPageUI;
+    private final Actions actions;
     private By itemsSearched;
 
     /**
@@ -24,6 +26,7 @@ public class ProductsPageServices {
 
         this.driver = driver;
         this.productsPageUI = new ProductsPageUI(driver);
+        this.actions = new Actions(driver);
     }
 
     /**
@@ -75,5 +78,49 @@ public class ProductsPageServices {
         }
 
     }
+
+    //RS500 Services
+    public void hoverOverRs500Overlay(){
+
+        actions.moveToElement(productsPageUI.rs500Overlay()).perform();
+    }
+
+    public void clickRs500AddToCart(){
+
+        WebElement btnAdd = productsPageUI.rs500AddToCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnAdd);
+    }
+
+
+    //RS400 Services
+
+    public void hoverOverRs400Overlay(){
+
+        actions.moveToElement(productsPageUI.rs400Overlay()).perform();
+    }
+
+    public void clickRs400AddToCart(){
+
+        WebElement btnAdd = productsPageUI.rs400AddToCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnAdd);
+    }
+
+    public void clickContinueShopping(){
+
+        WebElement btnContinue = productsPageUI.continueShoppingButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnContinue);
+    }
+
+    public void clickViewCart(){
+
+        WebElement btnView = productsPageUI.viewCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnView);
+
+    }
+
 
 }

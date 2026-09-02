@@ -73,6 +73,7 @@ public class SetUpEnvironment {
     protected TestDataGenerator testDataGenerator;
     protected StaticData staticData;
 
+
     @Before
     //1) Launch browser
     //2) Navigate to url

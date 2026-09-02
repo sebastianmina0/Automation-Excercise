@@ -47,5 +47,6 @@ public class Rs500UI {
 
         return driver.findElement(By.cssSelector(".product-information"));
     }
+    
 
 }

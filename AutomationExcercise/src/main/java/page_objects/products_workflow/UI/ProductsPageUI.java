@@ -39,15 +39,6 @@ public class ProductsPageUI {
     }
 
     /**
-     * Returns a button
-     * @return Button
-     */
-    public WebElement viewProductRs500(){
-
-        return driver.findElement(By.cssSelector("a[href='/product_details/1']"));
-    }
-
-    /**
      * Returns a web element
      * @return WebElement
      */
@@ -76,5 +67,81 @@ public class ProductsPageUI {
         return driver.findElement(By.cssSelector(".feature_items"));
     }
 
+    //RS500 WebElements
+
+    /**
+     * Returns a button
+     * @return Button
+     */
+    public WebElement viewProductRs500(){
+
+        return driver.findElement(By.cssSelector("a[href='/product_details/1']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement rs500Overlay(){
+
+        return driver.findElement(By.xpath("//div[@class='col-sm-9 padding-right']//div[2]//div[1]//div[1]//div[2]"));
+        
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement rs500AddToCart(){
+
+        return driver.findElement(By.cssSelector("a[data-product-id='1']"));
+    }
+
+    //RS400 WebElements
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement viewProductRs400(){
+
+        return driver.findElement(By.cssSelector("a[href='/product_details/2']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement rs400Overlay(){
+
+        return driver.findElement(By.xpath("//div[3]//div[1]//div[1]//div[2]"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement rs400AddToCart(){
+
+        return driver.findElement(By.cssSelector("a[data-product-id='2']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement continueShoppingButton(){
+
+        return driver.findElement(By.cssSelector(".btn.btn-success.close-modal.btn-block"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement viewCart(){
+
+        return driver.findElement(By.cssSelector("a[href='/view_cart']"));
+    }
 
 }

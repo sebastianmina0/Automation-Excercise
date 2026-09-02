@@ -70,4 +70,9 @@ public class CartUI {
 
         return driver.findElement(By.id("success-subscribe"));
     }
+
+    public WebElement tableOfContents(){
+
+        return driver.findElement(By.cssSelector("table[id='cart_info_table']"));
+    }
 }
