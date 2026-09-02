@@ -8,16 +8,28 @@ public class CartUI {
 
     private WebDriver driver;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public CartUI(WebDriver driver){
 
         this.driver = driver;
     }
 
+    /**
+     * Get driver
+     * @return
+     */
     public WebDriver getDriver(){
 
         return driver;
     }
 
+    /**
+     * Set driver
+     * @param driver
+     */
     public void setDriver (WebDriver driver){
 
         this.driver = driver;

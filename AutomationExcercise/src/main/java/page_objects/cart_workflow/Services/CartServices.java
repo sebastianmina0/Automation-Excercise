@@ -12,17 +12,27 @@ public class CartServices {
     private final WebDriver driver;
     private final CartUI cartUI;
 
+    /**
+     * Constructor
+     * @param driver
+     */
     public CartServices(WebDriver driver){
 
         this.driver = driver;
         cartUI = new CartUI(driver);
     }
 
+    /**
+     * Enters a new email in text field
+     */
     public void cartEnterSubscriptionEmail(){
 
         cartUI.cartSubscription().sendKeys(TestDataGenerator.newEmail());
     }
 
+    /**
+     * Clicks arrow button
+     */
     public void cartClickSubscriptionArrow(){
 
         WebElement btnSubscribe = cartUI.cartSubscriptionArrow();

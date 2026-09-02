@@ -6,6 +6,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 
+/**
+ * This is class is created to verify subscription
+ * functionallity in Cart page
+ * SubscriptionHomePage
+ */
 public class SubscriptionHomePage extends SetUpEnvironment {
 
     @Test

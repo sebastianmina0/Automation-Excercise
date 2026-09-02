@@ -31,11 +31,17 @@ public class MainPageServices {
         AdHandlerUtility.safeClick(driver, mainPageUI.singUp());
     }
 
+    /**
+     * Click contact us button
+     */
     public void clickContactUsButton(){
 
         AdHandlerUtility.safeClick(driver, mainPageUI.contactUs());
     }
 
+    /**
+     * Click test cases button
+     */
     public void clickTestCasesButton(){
 
         WebElement btnTestCases = mainPageUI.testCases();
@@ -43,6 +49,9 @@ public class MainPageServices {
         js.executeScript("arguments[0].click();", btnTestCases);
     }
 
+    /**
+     * Click products button
+     */
     public void clickProductsButton(){
 
         WebElement btnProducts = mainPageUI.productsButton();
@@ -51,11 +60,17 @@ public class MainPageServices {
 
     }
 
+    /**
+     * Enter email in text field
+     */
     public void enterSubscriptionEmail(){
 
         mainPageUI.subscription().sendKeys(TestDataGenerator.newEmail());
     }
 
+    /**
+     * Click arrow button
+     */
     public void clickSubscriptionArrow(){
 
         WebElement btnSubscribe = mainPageUI.subscriptionArrow();
@@ -64,6 +79,9 @@ public class MainPageServices {
 
     }
 
+    /**
+     * Click cart button
+     */
     public void clickCartbutton(){
 
         WebElement btnCart = mainPageUI.cartButton();

@@ -6,10 +6,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 
+/**
+ * This is class is created to verify subscription
+ * functionallity in Cart page
+ * SubscriptionCartPage
+ */
 public class SubscriptionCartPage extends SetUpEnvironment {
 
     @Test
-
+    /**
+     * Test Case 11: Verify Subscription in Cart page
+     */
     public void verifySubscriptionCartPage(){
 
         AdHandlerUtility.hideAds(driver);
