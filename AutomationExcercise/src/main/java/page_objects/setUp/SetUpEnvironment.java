@@ -161,7 +161,7 @@ public class SetUpEnvironment {
         paymentServices = new PaymentServices(driver);
         orderPlacedServices = new OrderPlacedServices(driver);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         projectPath = System.getProperty("user.dir");
         filePath = projectPath + "/src/main/resources/TestDataFile.txt";

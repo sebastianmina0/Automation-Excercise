@@ -8,65 +8,29 @@ import junit.framework.Assert;
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.TestDataGenerator;
-
 /**
- * This class is created to place and order while register a new user
- * PlaceOrderRegisterWhileCheckout
+ * This class is created to first register and
+ * then place an order
+ * PlaceOrderRegisterBeforeCheckout
  */
-public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
+public class PlaceOrderRegisterBeforeCheckout extends SetUpEnvironment{
 
     @Test
     /**
-     * Test Case 14: Place Order: Register while Checkout
+     * Test Case 15: Place Order: Register before Checkout
      * @throws InterruptedException
      */
-    public void placeOrderWithRegister() throws InterruptedException{
+    public void registerBeforeOrder() throws InterruptedException{
 
         //3) Verify that home page is visible successfully
         AdHandlerUtility.hideAds(driver);
         wait.until(ExpectedConditions.visibilityOf(mainPageUI.singUp()));
 
         AdHandlerUtility.hideAds(driver);
-        //4) Add products to cart
-        //Product RS400
-        js.executeScript("arguments[0].scrollIntoView(true);", mainPageUI.mainHoverOverRs400());
+        //4) Click 'Signup / Login' button
+        mainPageServices.clickSingUpButton();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        mainPageServices.hoverOverRs400();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-        mainPageServices.clickAddCartRs400();
-
-        AdHandlerUtility.hideAds(driver);
-        mainPageServices.clickContinueShopping();
-
-        //Product RS500
-        js.executeScript("arguments[0].scrollIntoView(true);", mainPageUI.mainHoverOverRs500());
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        mainPageServices.hoverOverRs500();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-        mainPageServices.clickAddCartRs500();
-
-        AdHandlerUtility.hideAds(driver);
-        
-        //5) Click 'Cart' button
-        mainPageServices.clickViewCart();
-
-        AdHandlerUtility.hideAds(driver);
-        //6) Verify that cart page is displayed
-        Assert.assertEquals("https://automationexercise.com/view_cart", driver.getCurrentUrl());
-
-        AdHandlerUtility.hideAds(driver);
-        //7) Click Proceed To Checkout
-        cartServices.clickCheckOutButton();
-
-        AdHandlerUtility.hideAds(driver);
-        //8) Click 'Register / Login' button
-        cartServices.clickRegisterLogin();
-
-        //9) Fill all details in Signup and create account
+        //5) Fill all details in Signup and create account
 
         //Enter name and email address
         signUpLoginPageServices.enterNameAndEmail(TestDataGenerator.newUserName(), TestDataGenerator.newEmail());
@@ -97,39 +61,63 @@ public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
         TestDataGenerator.newState(), TestDataGenerator.newCity(), TestDataGenerator.newZipCode(),
         TestDataGenerator.newMobileNumber());
         
+        
         //Click 'Create Account button'
         accountInformationServices.clickCreateAccount();
-
-        //10)Verify that 'ACCOUNT CREATED!' and click 'Continue' button
+        
+        AdHandlerUtility.hideAds(driver);
+        //6)Verify that 'ACCOUNT CREATED!' and click 'Continue' button
         wait.until(ExpectedConditions.visibilityOf(accountCreatedUI.accountCreated()));
         AdHandlerUtility.hideAds(driver);
         accountCreatedServices.clickContinue();
 
         AdHandlerUtility.hideAds(driver);
-        //11) Verify that 'Logged in as username' is visible
+        //7) Verify ' Logged in as username' at top
         wait.until(ExpectedConditions.visibilityOf(loggedInPageUI.loggedInAsUser()));
 
-        AdHandlerUtility.hideAds(driver);
-        //12) Click 'Cart' button
-        loggedInPageServices.clickCart();
+        //8) Add products to cart
+        //Product RS400
+        js.executeScript("arguments[0].scrollIntoView(true);", mainPageUI.mainHoverOverRs400());
+
+
+        mainPageServices.hoverOverRs400();
+        mainPageServices.clickAddCartRs400();
 
         AdHandlerUtility.hideAds(driver);
-        //13) Click 'Proceed To Checkout' button
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        mainPageServices.clickContinueShopping();
+
+        //Product RS500
+        js.executeScript("arguments[0].scrollIntoView(true);", mainPageUI.mainHoverOverRs500());
+
+
+        mainPageServices.hoverOverRs500();
+        mainPageServices.clickAddCartRs500();
+
+        //9) Click 'Cart' button
+        mainPageServices.clickViewCart();
+
+        AdHandlerUtility.hideAds(driver);
+        //10) Verify that cart page is displayed
+        Assert.assertEquals("https://automationexercise.com/view_cart", driver.getCurrentUrl());
+
+        AdHandlerUtility.hideAds(driver);
+        //11) Click Proceed To Checkout
         cartServices.clickCheckOutButton();
 
         AdHandlerUtility.hideAds(driver);
-        //14) Verify Address Details and Review Your Order
+        //12) Verify Address Details and Review Your Order
         wait.until(ExpectedConditions.visibilityOf(checkoutUI.checkOutInformation()));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         wait.until(ExpectedConditions.visibilityOf(checkoutUI.orderTable()));
 
         AdHandlerUtility.hideAds(driver);
-        //15) Enter description in comment text area and click 'Place Order'
+        //13) Enter description in comment text area and click 'Place Order'
         checkoutServices.enterMessage(TestDataGenerator.emailMessage());
         checkoutServices.clickPlaceOrder();
 
         AdHandlerUtility.hideAds(driver);
-        //16) Enter payment details: Name on Card, Card Number, CVC, Expiration date
+        //14) Enter payment details: Name on Card, Card Number, CVC, Expiration date
         paymentServices.enterPaymentName(TestDataGenerator.cardName());
         paymentServices.enterPaymentCardNumber(TestDataGenerator.cardNumber());
         paymentServices.enterPaymentCVC(TestDataGenerator.cvc());
@@ -137,21 +125,19 @@ public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
         paymentServices.enterExpirationYear(TestDataGenerator.expirationYear());
 
         AdHandlerUtility.hideAds(driver);
-        //17) Click 'Pay and Confirm Order' button
+        //15) Click 'Pay and Confirm Order' button
         paymentServices.clickConfirmOrder();
 
-        AdHandlerUtility.hideAds(driver);
-        //18) Verify success message 'Your order has been placed successfully!'
+        //16) Verify success message 'Your order has been placed successfully!'
         //wait.until(ExpectedConditions.visibilityOf(paymentUI.orderSuccessMessage()));
 
-        AdHandlerUtility.hideAds(driver);
-        //19) Click 'Delete Account' button
+        //17) Click 'Delete Account' button
         orderPlacedServices.clickDeleteAccount();
 
-        //20) Verify 'ACCOUNT DELETED!' and click 'Continue' button
+        //18) Verify 'ACCOUNT DELETED!' and click 'Continue' button
         wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
         accountDeletedServices.clickContinue();
-
     }
+
 
 }
