@@ -153,4 +153,24 @@ public class MainPageServices {
         mainPageUI.mainViewCart().click();
     }
 
+    /**
+     * Clicks women category
+     */
+    public void clickWomenCategory(){
+
+        WebElement btnW = mainPageUI.womenButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnW);
+    }
+
+    /**
+     * Clicks tops subcategory
+     */
+    public void clickWomenSubcategoryTops(){
+
+        WebElement btnSub = mainPageUI.subCategoryWomenTops();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnSub);
+    }
+
 }

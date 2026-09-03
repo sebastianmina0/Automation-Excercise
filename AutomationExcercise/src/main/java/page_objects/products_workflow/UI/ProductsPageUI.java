@@ -144,4 +144,34 @@ public class ProductsPageUI {
         return driver.findElement(By.cssSelector("a[href='/view_cart']"));
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement womenTopsText(){
+
+        return driver.findElement(By.xpath("//h2[@class='title text-center']"));
+
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement menCategory(){
+
+        return driver.findElement(By.cssSelector("#accordian > div:nth-child(2) > div.panel-heading > h4 > a"));
+
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement subCategoryMenJeans(){
+
+        return driver.findElement(By.cssSelector("#Men > div > ul > li:nth-child(2) > a"));
+
+    }
+
 }

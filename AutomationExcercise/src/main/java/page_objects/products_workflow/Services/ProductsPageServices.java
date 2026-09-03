@@ -57,10 +57,95 @@ public class ProductsPageServices {
         js.executeScript("arguments[0].click();", btnSearch);
     }
 
+    //RS500 Services
+    /**
+     * Hover over in Rs500 overlay
+     */
+    public void hoverOverRs500Overlay(){
+
+        actions.moveToElement(productsPageUI.rs500Overlay()).perform();
+    }
+
+    /**
+     * Clcicks add cart button
+     */
+    public void clickRs500AddToCart(){
+
+        WebElement btnAdd = productsPageUI.rs500AddToCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnAdd);
+    }
+
+
+    //RS400 Services
+    /**
+     * Hover over Rs400 overlay
+     */
+    public void hoverOverRs400Overlay(){
+
+        actions.moveToElement(productsPageUI.rs400Overlay()).perform();
+    }
+
+    /**
+     * Clicks add to cart button
+     */
+    public void clickRs400AddToCart(){
+
+        WebElement btnAdd = productsPageUI.rs400AddToCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnAdd);
+    }
+
+    /**
+     * Clicks continue shopping button
+     */
+    public void clickContinueShopping(){
+
+        WebElement btnContinue = productsPageUI.continueShoppingButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnContinue);
+    }
+
+    /**
+     * Clicks view cart button
+     */
+    public void clickViewCart(){
+
+        WebElement btnView = productsPageUI.viewCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnView);
+
+    }
+
+    /**
+     * Clicks Men category
+     */
+    public void clickMenCategory(){
+
+        WebElement btnMen = productsPageUI.menCategory();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnMen);
+    }
+
+    /**
+     * Clicks Jeans subcategory
+     */
+    public void clickSubCategoryJeans(){
+
+        WebElement btnJeans = productsPageUI.subCategoryMenJeans();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnJeans);
+    }
+
+    public void searchedItems(){
+
+        allSearchedItems();
+    }
+
     /**
      * Method that prints all name of all items found
      */
-    public void allSearchedItems(){
+    private void allSearchedItems(){
 
         itemsSearched = By.cssSelector(".features_items .col-sm-4");
         List<WebElement> items = driver.findElements(itemsSearched);
@@ -76,49 +161,6 @@ public class ProductsPageServices {
         } else{
             System.out.println("No Elements found");
         }
-
-    }
-
-    //RS500 Services
-    public void hoverOverRs500Overlay(){
-
-        actions.moveToElement(productsPageUI.rs500Overlay()).perform();
-    }
-
-    public void clickRs500AddToCart(){
-
-        WebElement btnAdd = productsPageUI.rs500AddToCart();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", btnAdd);
-    }
-
-
-    //RS400 Services
-
-    public void hoverOverRs400Overlay(){
-
-        actions.moveToElement(productsPageUI.rs400Overlay()).perform();
-    }
-
-    public void clickRs400AddToCart(){
-
-        WebElement btnAdd = productsPageUI.rs400AddToCart();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", btnAdd);
-    }
-
-    public void clickContinueShopping(){
-
-        WebElement btnContinue = productsPageUI.continueShoppingButton();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", btnContinue);
-    }
-
-    public void clickViewCart(){
-
-        WebElement btnView = productsPageUI.viewCart();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", btnView);
 
     }
 

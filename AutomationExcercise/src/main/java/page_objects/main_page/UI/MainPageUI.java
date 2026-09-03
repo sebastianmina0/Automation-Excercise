@@ -179,7 +179,12 @@ public class MainPageUI {
      */
     public WebElement womenButton(){
 
-        return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1)"));
+        return getDriver().findElement(By.cssSelector("#accordian > div:nth-child(1) > div.panel-heading > h4 > a"));
+    }
+
+    public WebElement subCategoryWomenTops(){
+
+        return driver.findElement(By.cssSelector("#Women > div > ul > li:nth-child(2) > a"));
     }
 
     /**
@@ -188,7 +193,8 @@ public class MainPageUI {
      */
     public WebElement womenPlusButton(){
 
-        return getDriver().findElement(By.cssSelector("body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > h4:nth-child(1) > a:nth-child(1) > span:nth-child(1) > i:nth-child(1)"));
+        return getDriver().findElement(By.cssSelector("#accordian > div:nth-child(1) > div.panel-heading > h4 > a > span > i"));
+        
     }
 
     /**
