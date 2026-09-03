@@ -10,10 +10,17 @@ import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.StaticData;
 import page_objects.test_data.TestDataGenerator;
 
+/**
+ * This class is created to verify login workflow and place
+ * order workflow
+ * LoginBeforeCheckout
+ */
 public class LoginBeforeCheckout extends SetUpEnvironment {
 
     @Test
-
+    /**
+     * Test Case 16: Place Order: Login before Checkout
+     */
     public void loginBeforeCheckout(){
 
         //3) Verify that home page is visible successfully

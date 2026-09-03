@@ -65,11 +65,49 @@ public class CartServices {
         cartUI.registerLogin().click();
     }
 
+    public void clickDeleteButtonRs500(){
+
+        cartUI.deleteButtonRs500().click();
+    }
+
+    public void itemsDeleted(){
+
+        verifyDeletedItems();
+    }
+
+    public void cartInformation(){
+
+        verifyProductsInCartAndInfo();
+    }
+
+    private void verifyDeletedItems(){
+
+        items = By.cssSelector("#cart_info_table > tbody > tr");
+        List<WebElement> productsInCart = driver.findElements(items);
+
+        if(!productsInCart.isEmpty()){
+
+            for(WebElement i: productsInCart){
+                WebElement product = i.findElement(By.cssSelector(".cart_description a"));
+                String productName = product.getText();
+
+                if(productName.equalsIgnoreCase("Blue Top")){
+
+                    System.out.println("Product no deleted");
+                } else{
+                    System.out.println("Product deleted");
+                    break;
+                }
+
+            }
+        }
+    }
+
     /**
      * Verifies how many items are in cart and verifies
      * price, quantity and total per product
      */
-    public void verifyProductsInCartAndInfo(){
+    private void verifyProductsInCartAndInfo(){
 
         items = By.cssSelector("#cart_info_table > tbody > tr");
         List<WebElement> productsInCart = driver.findElements(items);

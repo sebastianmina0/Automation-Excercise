@@ -86,4 +86,9 @@ public class CartUI {
         return driver.findElement(By.cssSelector("#checkoutModal > div > div > div.modal-body > p:nth-child(2) > a"));
 
     }
+
+    public WebElement deleteButtonRs500(){
+
+        return driver.findElement(By.cssSelector("#product-1 > td.cart_delete > a > i"));
+    }
 }

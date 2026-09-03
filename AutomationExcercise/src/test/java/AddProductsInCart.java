@@ -59,7 +59,7 @@ public class AddProductsInCart extends SetUpEnvironment {
         AdHandlerUtility.hideAds(driver);
         //9) Verify both products are added to Cart
         //10) Verify their prices, quantity and total price
-        cartServices.verifyProductsInCartAndInfo();
+        cartServices.cartInformation();
     }
 
 }
