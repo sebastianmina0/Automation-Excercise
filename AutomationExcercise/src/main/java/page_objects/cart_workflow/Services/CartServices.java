@@ -47,6 +47,25 @@ public class CartServices {
     }
 
     /**
+     * Clicks checkout button
+     */
+    public void clickCheckOutButton(){
+
+        WebElement btnCheckOut = cartUI.proceedToCheckout();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnCheckOut);
+        
+    }
+
+    /**
+     * Clicks register login link
+     */
+    public void clickRegisterLogin(){
+
+        cartUI.registerLogin().click();
+    }
+
+    /**
      * Verifies how many items are in cart and verifies
      * price, quantity and total per product
      */
@@ -90,5 +109,6 @@ public class CartServices {
             System.out.println("No products in cart");
         }
     }
+    
 
 }

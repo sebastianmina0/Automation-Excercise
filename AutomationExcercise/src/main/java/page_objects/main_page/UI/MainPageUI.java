@@ -382,8 +382,66 @@ public class MainPageUI {
         return driver.findElement(By.id("success-subscribe"));
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
     public WebElement mainRs500ViewProduct(){
 
         return driver.findElement(By.cssSelector("a[href='/product_details/1']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement mainHoverOverRs500(){
+
+        return driver.findElement(By.xpath("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement mainAddCartRs500(){
+
+        return driver.findElement(By.cssSelector("a[data-product-id='1']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement mainContinueShopping(){
+
+        return driver.findElement(By.cssSelector(".btn.btn-success.close-modal.btn-block"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement mainHoverOverRs400(){
+
+        return driver.findElement(By.xpath("//div[3]//div[1]//div[1]//div[2]"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement mainAddCartRs400(){
+
+        return driver.findElement(By.cssSelector("a[data-product-id='2']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement mainViewCart(){
+
+        return driver.findElement(By.cssSelector("#cartModal > div > div > div.modal-body > p:nth-child(2) > a"));
     }
 }

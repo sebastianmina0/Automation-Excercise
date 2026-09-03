@@ -43,4 +43,12 @@ public class LoggedInPageServices {
 
     }
 
+    public void clickCart(){
+
+        WebElement btnCart = loggedInPageUI.cartButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnCart);
+
+    }
+
 }

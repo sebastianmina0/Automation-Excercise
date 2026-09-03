@@ -75,4 +75,15 @@ public class CartUI {
 
         return driver.findElement(By.cssSelector("table[id='cart_info_table']"));
     }
+
+    public WebElement proceedToCheckout(){
+
+        return driver.findElement(By.cssSelector(".btn.btn-default.check_out"));
+    }
+
+    public WebElement registerLogin(){
+
+        return driver.findElement(By.cssSelector("#checkoutModal > div > div > div.modal-body > p:nth-child(2) > a"));
+
+    }
 }

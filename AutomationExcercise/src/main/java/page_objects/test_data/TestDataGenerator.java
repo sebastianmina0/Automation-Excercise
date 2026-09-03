@@ -148,14 +148,67 @@ public interface TestDataGenerator {
         return faker.phoneNumber().toString();
     }
 
+    /**
+     * Returns a sentence
+     * @return String
+     */
     static String emailSubject(){
 
         return faker.lorem().sentence(5);
     }
 
+    /**
+     * Returns a paragraph
+     * @return String
+     */
     static String emailMessage(){
 
         return faker.lorem().paragraph(1);
+    }
+
+    /**
+     * Returns a full name
+     * @return String
+     */
+    static String cardName(){
+
+        return faker.name().fullName();
+    }
+
+    /**
+     * Returns a card number
+     * @return String
+     */
+    static String cardNumber(){
+
+        return faker.finance().creditCard();
+    }
+
+    /**
+     * Returns cvc
+     * @return
+     */
+    static String cvc(){
+
+        return faker.random().nextInt(000,999).toString();
+    }
+
+    /**
+     * Returns month between 01-12
+     * @return String
+     */
+    static String expirationMonth(){
+
+        return faker.random().nextInt(01, 12).toString();
+    }
+
+    /**
+     * Returns year between 2027-2100
+     * @return String
+     */
+    static String expirationYear(){
+
+        return faker.random().nextInt(2027, 2100).toString();
     }
 }
 

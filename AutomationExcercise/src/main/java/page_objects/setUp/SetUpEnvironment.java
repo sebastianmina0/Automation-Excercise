@@ -3,6 +3,7 @@ package page_objects.setUp;
 import java.time.Duration;
 
 import org.junit.Before;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.cart_workflow.Services.CartServices;
 import page_objects.cart_workflow.UI.CartUI;
+import page_objects.checkout_workflow.Services.CheckoutServices;
+import page_objects.checkout_workflow.UI.CheckoutUI;
 import page_objects.contact_us_workflow.Services.ContactUsServices;
 import page_objects.contact_us_workflow.UI.ContactUsUI;
 import page_objects.delete_account.Services.AccountDeletedServices;
@@ -19,9 +22,15 @@ import page_objects.login_workflow.Services.LoggedInPageServices;
 import page_objects.login_workflow.UI.LoggedInPageUI;
 import page_objects.main_page.Services.MainPageServices;
 import page_objects.main_page.UI.MainPageUI;
+import page_objects.order_placed.Services.OrderPlacedServices;
+import page_objects.order_placed.UI.OrderPlacedUI;
+import page_objects.payment_workflow.Services.PaymentServices;
+import page_objects.payment_workflow.UI.PaymentUI;
 import page_objects.products_workflow.Services.ProductsPageServices;
+import page_objects.products_workflow.Services.Rs400Services;
 import page_objects.products_workflow.Services.Rs500Services;
 import page_objects.products_workflow.UI.ProductsPageUI;
+import page_objects.products_workflow.UI.Rs400UI;
 import page_objects.products_workflow.UI.Rs500UI;
 import page_objects.signup_workflow.Services.AccountCreatedServices;
 import page_objects.signup_workflow.Services.AccountInformationServices;
@@ -55,7 +64,11 @@ public class SetUpEnvironment {
     protected ContactUsUI contactUsUI;
     protected ProductsPageUI productsPageUI;
     protected Rs500UI rs500UI;
+    protected Rs400UI rs400UI;
     protected CartUI cartUI;
+    protected CheckoutUI checkoutUI;
+    protected PaymentUI paymentUI;
+    protected OrderPlacedUI orderPlacedUI;
 
     // Services
     protected MainPageServices mainPageServices;
@@ -67,11 +80,18 @@ public class SetUpEnvironment {
     protected ContactUsServices contactUsServices;
     protected ProductsPageServices productsPageServices;
     protected Rs500Services rs500Services;
+    protected Rs400Services rs400Services;
     protected CartServices cartServices;
+    protected CheckoutServices checkoutServices;
+    protected PaymentServices paymentServices;
+    protected OrderPlacedServices orderPlacedServices;
 
     //TestData
     protected TestDataGenerator testDataGenerator;
     protected StaticData staticData;
+
+    //Javascript
+    protected JavascriptExecutor js;
 
 
     @Before
@@ -111,8 +131,20 @@ public class SetUpEnvironment {
         rs500UI = new Rs500UI(driver);
         rs500UI.setDriver(driver);
 
+        rs400UI = new Rs400UI(driver);
+        rs400UI.setDriver(driver);
+
         cartUI = new CartUI(driver);
         cartUI.setDriver(driver);
+
+        checkoutUI = new CheckoutUI(driver);
+        checkoutUI.setDriver(driver);
+
+        paymentUI = new PaymentUI(driver);
+        paymentUI.setDriver(driver);
+
+        orderPlacedUI = new OrderPlacedUI(driver);
+        orderPlacedUI.setDriver(driver);
 
         mainPageServices = new MainPageServices(driver);
         signUpLoginPageServices = new SignUpLoginPageServices(driver);
@@ -123,12 +155,17 @@ public class SetUpEnvironment {
         contactUsServices = new ContactUsServices(driver);
         productsPageServices = new ProductsPageServices(driver);
         rs500Services = new Rs500Services(driver);
+        rs400Services = new Rs400Services(driver);
         cartServices = new CartServices(driver);
+        checkoutServices = new CheckoutServices(driver);
+        paymentServices = new PaymentServices(driver);
+        orderPlacedServices = new OrderPlacedServices(driver);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         projectPath = System.getProperty("user.dir");
         filePath = projectPath + "/src/main/resources/TestDataFile.txt";
+        js = (JavascriptExecutor) driver;
 
     }
 
