@@ -71,22 +71,38 @@ public class CartUI {
         return driver.findElement(By.id("success-subscribe"));
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
     public WebElement tableOfContents(){
 
         return driver.findElement(By.cssSelector("table[id='cart_info_table']"));
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
     public WebElement proceedToCheckout(){
 
         return driver.findElement(By.cssSelector(".btn.btn-default.check_out"));
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
     public WebElement registerLogin(){
 
         return driver.findElement(By.cssSelector("#checkoutModal > div > div > div.modal-body > p:nth-child(2) > a"));
 
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
     public WebElement deleteButtonRs500(){
 
         return driver.findElement(By.cssSelector("#product-1 > td.cart_delete > a > i"));

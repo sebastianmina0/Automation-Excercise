@@ -50,7 +50,7 @@ public class VerifyQuantity extends SetUpEnvironment {
 
         AdHandlerUtility.hideAds(driver);
         //9) Verify that product is displayed in cart page with exact quantity
-        cartServices.verifyProductsInCartAndInfo();
+        cartServices.cartInformation();
     }
 
 }

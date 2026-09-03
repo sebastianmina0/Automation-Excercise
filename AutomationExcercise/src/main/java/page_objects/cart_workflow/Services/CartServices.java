@@ -65,21 +65,33 @@ public class CartServices {
         cartUI.registerLogin().click();
     }
 
+    /**
+     * Click delete button for Rs500 
+     */
     public void clickDeleteButtonRs500(){
 
         cartUI.deleteButtonRs500().click();
     }
 
+    /**
+     * Verify if a product is deleted
+     */
     public void itemsDeleted(){
 
         verifyDeletedItems();
     }
 
+    /**
+     * Verify cart and products information
+     */
     public void cartInformation(){
 
         verifyProductsInCartAndInfo();
     }
 
+    /**
+     * Class that verifies if blue top product was deleted
+     */
     private void verifyDeletedItems(){
 
         items = By.cssSelector("#cart_info_table > tbody > tr");

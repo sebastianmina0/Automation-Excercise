@@ -8,10 +8,17 @@ import junit.framework.Assert;
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 
+/**
+ * This is class is created to verify removing items
+ * from cart
+ * RemoveProducts
+ */
 public class RemoveProducts extends SetUpEnvironment{
 
     @Test
-    
+    /**
+     * Test Case 17: Remove Products From Cart
+     */
     public void removeProductsFromCart(){
 
         //3) Verify that home page is visible successfully
