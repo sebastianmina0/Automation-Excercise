@@ -26,9 +26,11 @@ import page_objects.order_placed.Services.OrderPlacedServices;
 import page_objects.order_placed.UI.OrderPlacedUI;
 import page_objects.payment_workflow.Services.PaymentServices;
 import page_objects.payment_workflow.UI.PaymentUI;
+import page_objects.products_workflow.Services.PoloBrandPageServices;
 import page_objects.products_workflow.Services.ProductsPageServices;
 import page_objects.products_workflow.Services.Rs400Services;
 import page_objects.products_workflow.Services.Rs500Services;
+import page_objects.products_workflow.UI.PoloBrandPageUI;
 import page_objects.products_workflow.UI.ProductsPageUI;
 import page_objects.products_workflow.UI.Rs400UI;
 import page_objects.products_workflow.UI.Rs500UI;
@@ -69,6 +71,7 @@ public class SetUpEnvironment {
     protected CheckoutUI checkoutUI;
     protected PaymentUI paymentUI;
     protected OrderPlacedUI orderPlacedUI;
+    protected PoloBrandPageUI poloBrandPageUI;
 
     // Services
     protected MainPageServices mainPageServices;
@@ -85,6 +88,7 @@ public class SetUpEnvironment {
     protected CheckoutServices checkoutServices;
     protected PaymentServices paymentServices;
     protected OrderPlacedServices orderPlacedServices;
+    protected PoloBrandPageServices poloBrandPageServices;
 
     //TestData
     protected TestDataGenerator testDataGenerator;
@@ -146,6 +150,9 @@ public class SetUpEnvironment {
         orderPlacedUI = new OrderPlacedUI(driver);
         orderPlacedUI.setDriver(driver);
 
+        poloBrandPageUI = new PoloBrandPageUI(driver);
+        poloBrandPageUI.setDriver(driver);
+
         mainPageServices = new MainPageServices(driver);
         signUpLoginPageServices = new SignUpLoginPageServices(driver);
         loggedInPageServices = new LoggedInPageServices(driver);
@@ -160,6 +167,7 @@ public class SetUpEnvironment {
         checkoutServices = new CheckoutServices(driver);
         paymentServices = new PaymentServices(driver);
         orderPlacedServices = new OrderPlacedServices(driver);
+        poloBrandPageServices = new PoloBrandPageServices(driver);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 

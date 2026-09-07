@@ -174,4 +174,22 @@ public class ProductsPageUI {
 
     }
 
+    /**
+     * Returns a WebElement
+     * @return
+     */
+    public WebElement brandsBox(){
+
+        return driver.findElement(By.cssSelector(".brands_products"));
+    }
+
+    /**
+     * Retrurns a WebElement
+     * @return
+     */
+    public WebElement poloButton(){
+
+        return driver.findElement(By.cssSelector("a[href='/brand_products/Polo'"));
+    }
+
 }

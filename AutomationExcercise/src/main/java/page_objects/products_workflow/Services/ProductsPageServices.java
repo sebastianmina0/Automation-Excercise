@@ -137,9 +137,23 @@ public class ProductsPageServices {
         js.executeScript("arguments[0].click();", btnJeans);
     }
 
+    /**
+     * Uses allSearchedItems private class.
+     */
     public void searchedItems(){
 
         allSearchedItems();
+    }
+
+    /**
+     * Clicks Polo button
+     */
+    public void clickPoloButton(){
+
+        WebElement btnPolo = productsPageUI.poloButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnPolo);
+
     }
 
     /**
