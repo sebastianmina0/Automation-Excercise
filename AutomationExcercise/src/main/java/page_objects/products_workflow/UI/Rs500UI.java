@@ -76,4 +76,49 @@ public class Rs500UI {
         
     }
 
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement reviewText(){
+
+        return driver.findElement(By.cssSelector(".col-sm-12 .nav.nav-tabs .active a"));
+    }
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement reviewName(){
+
+        return driver.findElement(By.cssSelector("input[id='name']"));
+    }
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement reviewEmail(){
+
+        return driver.findElement(By.cssSelector("input[id='email']"));
+    }
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement reviewMessage(){
+
+        return driver.findElement(By.cssSelector("textarea[id='review']"));
+    }
+
+    /**
+     * Returns a webelement
+     * @return WebElement
+     */
+    public WebElement submitButton(){
+
+        return driver.findElement(By.cssSelector("button[id='button-review']"));
+    }
+
 }

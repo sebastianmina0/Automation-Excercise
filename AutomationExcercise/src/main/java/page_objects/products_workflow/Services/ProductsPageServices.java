@@ -22,8 +22,8 @@ public class ProductsPageServices {
     private By itemsSearched;
     private By addToCartButtons;
     private WebElement continueShoppingButton;
-    private WebDriverWait wait;
-    private JavascriptExecutor js;
+    private final WebDriverWait wait;
+    private final JavascriptExecutor js;
 
     /**
      * Constructor
