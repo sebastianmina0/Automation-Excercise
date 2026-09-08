@@ -1,5 +1,7 @@
 package page_objects.products_workflow.Services;
 
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -7,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.products_workflow.UI.ProductsPageUI;
 import page_objects.test_data.StaticData;
@@ -17,6 +20,10 @@ public class ProductsPageServices {
     private final ProductsPageUI productsPageUI;
     private final Actions actions;
     private By itemsSearched;
+    private By addToCartButtons;
+    private By continueShoppingButton;
+    private By overlays;
+    private WebDriverWait wait;
 
     /**
      * Constructor
@@ -27,6 +34,7 @@ public class ProductsPageServices {
         this.driver = driver;
         this.productsPageUI = new ProductsPageUI(driver);
         this.actions = new Actions(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     /**
@@ -117,6 +125,13 @@ public class ProductsPageServices {
 
     }
 
+    public void clickCart(){
+
+        WebElement btnCart = productsPageUI.viewCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnCart);
+    }
+
     /**
      * Clicks Men category
      */
@@ -178,5 +193,35 @@ public class ProductsPageServices {
 
     }
 
+    public List<String> returnAllProducts(){
+
+        return allProducts();
+    }
+
+
+    /**
+     * Method that returns all products
+     * @return
+     */
+    private List<String> allProducts(){
+
+        List<String> allProducts = new ArrayList<>();
+        itemsSearched = By.cssSelector(".features_items .col-sm-4");
+        List<WebElement> piv = driver.findElements(itemsSearched);
+
+        if(!piv.isEmpty()){
+
+            for(WebElement i: piv){
+
+                WebElement elementName = i.findElement(By.cssSelector(".productinfo p"));
+                String productName = elementName.getText();
+
+                allProducts.add(productName);
+            }
+        }
+
+        return allProducts;
+
+    }
 
 }
