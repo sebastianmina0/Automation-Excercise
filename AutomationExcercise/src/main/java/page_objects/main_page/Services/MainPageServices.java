@@ -173,4 +173,15 @@ public class MainPageServices {
         js.executeScript("arguments[0].click();", btnSub);
     }
 
+    /**
+     * Clicks add to cart button in recommended items
+     */
+    public void clickAddCartRs100(){
+
+        WebElement btnAdd = mainPageUI.recommendItemRs1000AddToCart();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnAdd);
+
+    }
+
 }

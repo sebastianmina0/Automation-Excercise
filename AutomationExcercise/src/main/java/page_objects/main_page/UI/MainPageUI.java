@@ -450,4 +450,14 @@ public class MainPageUI {
 
         return driver.findElement(By.cssSelector("#cartModal > div > div > div.modal-body > p:nth-child(2) > a"));
     }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */  
+    public WebElement recommendItemRs1000AddToCart(){
+
+        return driver.findElement(By.cssSelector("#recommended-item-carousel > div > div:nth-child(1) > div:nth-child(3) > div > div > div > a"));
+
+    }
 }
