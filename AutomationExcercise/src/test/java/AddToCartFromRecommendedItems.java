@@ -1,4 +1,5 @@
 import org.junit.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
@@ -23,6 +24,8 @@ public class AddToCartFromRecommendedItems extends SetUpEnvironment{
         AdHandlerUtility.hideAds(driver);
         //5) Click on 'Add To Cart' on Recommended product
         mainPageServices.clickAddCartRs100();
+        wait.until(ExpectedConditions.visibilityOf(mainPageUI.mainContinueShopping()));
+        mainPageServices.clickContinueShopping();
 
         AdHandlerUtility.hideAds(driver);
         //6) Click on 'View Cart' button
@@ -31,7 +34,6 @@ public class AddToCartFromRecommendedItems extends SetUpEnvironment{
 
         AdHandlerUtility.hideAds(driver);
         //7) Verify that product is displayed in cart page
-        driver.navigate().refresh();
         cartServices.cartInformation();
     }
 
