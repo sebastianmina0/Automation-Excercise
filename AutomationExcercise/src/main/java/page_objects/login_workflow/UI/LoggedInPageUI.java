@@ -383,6 +383,33 @@ public class LoggedInPageUI {
 
         return getDriver().findElement(By.cssSelector("#subscribe"));
     }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement hoverOverRs500(){
+
+        return driver.findElement(By.xpath("//div[@class='features_items']//div[2]//div[1]//div[1]//div[2]"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement addCartRs500(){
+
+        return driver.findElement(By.cssSelector("a[data-product-id='1']"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement continueShopping(){
+
+        return driver.findElement(By.cssSelector(".btn.btn-success.close-modal.btn-block"));
+    }
     
 
 }

@@ -145,7 +145,7 @@ public interface TestDataGenerator {
      */
     static String newMobileNumber(){
 
-        return faker.phoneNumber().toString();
+        return faker.phoneNumber().phoneNumber();
     }
 
     /**

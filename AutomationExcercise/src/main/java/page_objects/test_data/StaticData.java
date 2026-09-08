@@ -23,4 +23,16 @@ public interface StaticData {
     //TestData test case #13
     String quantity = "4";
 
+    //TestData test case 23
+    String firstName = TestDataGenerator.newFirstName();
+    String lastName = TestDataGenerator.newLastName();
+    String company = TestDataGenerator.newCompany();
+    String address = TestDataGenerator.newAddress();
+    String address2 = TestDataGenerator.newAddress();
+    String country = TestDataGenerator.newCountry();
+    String state = TestDataGenerator.newState();
+    String city = TestDataGenerator.newCity();
+    String zipCode = TestDataGenerator.newZipCode();
+    String mobileNumber = TestDataGenerator.newMobileNumber();
+
 }
