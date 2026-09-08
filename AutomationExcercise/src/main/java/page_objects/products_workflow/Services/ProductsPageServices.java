@@ -1,7 +1,6 @@
 package page_objects.products_workflow.Services;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -9,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import page_objects.products_workflow.UI.ProductsPageUI;
@@ -21,9 +21,9 @@ public class ProductsPageServices {
     private final Actions actions;
     private By itemsSearched;
     private By addToCartButtons;
-    private By continueShoppingButton;
-    private By overlays;
+    private WebElement continueShoppingButton;
     private WebDriverWait wait;
+    private JavascriptExecutor js;
 
     /**
      * Constructor
@@ -35,6 +35,7 @@ public class ProductsPageServices {
         this.productsPageUI = new ProductsPageUI(driver);
         this.actions = new Actions(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        this.js = (JavascriptExecutor) driver;
     }
 
     /**
@@ -171,6 +172,11 @@ public class ProductsPageServices {
 
     }
 
+    public void verifySearchAndAddProducts(){
+
+        verifyAllProductsAndAddToCart();
+    }
+
     /**
      * Method that prints all name of all items found
      */
@@ -193,34 +199,46 @@ public class ProductsPageServices {
 
     }
 
-    public List<String> returnAllProducts(){
-
-        return allProducts();
-    }
-
-
     /**
-     * Method that returns all products
-     * @return
+     * Method that add all searched products in the cart
      */
-    private List<String> allProducts(){
+    private void verifyAllProductsAndAddToCart(){
 
-        List<String> allProducts = new ArrayList<>();
-        itemsSearched = By.cssSelector(".features_items .col-sm-4");
-        List<WebElement> piv = driver.findElements(itemsSearched);
+        //By variable with xPath of product images
+        itemsSearched = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div");
+        
+        //By variable with cssSelector of all product overlay content
+        addToCartButtons = By.cssSelector(".product-overlay .overlay-content");
 
-        if(!piv.isEmpty()){
+        //Continue shopping button
+        continueShoppingButton = driver.findElement(By.cssSelector(".modal-footer .btn.btn-success.close-modal.btn-block"));
+        
+        //List with all images
+        List<WebElement> items = driver.findElements(itemsSearched);
+        //List with all overlay contents
+        List<WebElement> addButtons = driver.findElements(addToCartButtons);
 
-            for(WebElement i: piv){
+        for(WebElement i: items){
+            for(WebElement j: addButtons){
+                if(!items.isEmpty()){
+                    
+                    js.executeScript("arguments[0].scrollIntoView(true);", i);
+                    //Hover over to the image
+                    actions.moveToElement(i);
 
-                WebElement elementName = i.findElement(By.cssSelector(".productinfo p"));
-                String productName = elementName.getText();
+                    //Create button web element looking at addButtons list
+                    WebElement button = j.findElement(By.cssSelector(".overlay-content a"));
 
-                allProducts.add(productName);
-            }
+                    //Click add button
+                    js.executeScript("arguments[0].click();", button);
+                    wait.until(ExpectedConditions.visibilityOf(continueShoppingButton));
+
+                    //Click Continue shopping button
+                    js.executeScript("arguments[0].click();", continueShoppingButton);
+
+                }
+            }   
         }
-
-        return allProducts;
 
     }
 

@@ -89,6 +89,13 @@ public class CartServices {
         verifyProductsInCartAndInfo();
     }
 
+    public void clickSignUpLoginButton(){
+
+        WebElement btnSign = cartUI.signUpLoginButton();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnSign);
+    }
+
     /**
      * Class that verifies if blue top product was deleted
      */

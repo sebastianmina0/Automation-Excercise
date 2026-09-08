@@ -96,7 +96,7 @@ public class CartUI {
     public WebElement registerLogin(){
 
         return driver.findElement(By.cssSelector("#checkoutModal > div > div > div.modal-body > p:nth-child(2) > a"));
-
+        
     }
 
     /**
@@ -106,5 +106,14 @@ public class CartUI {
     public WebElement deleteButtonRs500(){
 
         return driver.findElement(By.cssSelector("#product-1 > td.cart_delete > a > i"));
+    }
+
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement signUpLoginButton(){
+
+        return driver.findElement(By.cssSelector("body > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(4) > a:nth-child(1)"));
     }
 }
