@@ -38,7 +38,7 @@ Automation-Excercise/
 ├── pom.xml                    # Maven configuration and dependencies
 └── README.md                  # Project documentation
 ```
-⚙️ Prerequisites
+## ⚙️ Prerequisites
 Before running this project locally, make sure you have the following installed:
 
 Java Development Kit (JDK 11 or higher)
@@ -49,7 +49,7 @@ A compatible web browser (Google Chrome or Firefox)
 
 Recommended IDE: IntelliJ IDEA or Eclipse.
 
-📥 Cloning and Setup
+## 📥 Cloning and Setup
 Clone the repository:
 
 Bash
@@ -59,7 +59,8 @@ Install project dependencies:
 
 Bash
 mvn clean install
-▶️ How to Run the Tests?
+
+## ▶️ How to Run the Tests?
 Option 1: Via Command Line (Maven)
 Bash
 mvn clean test
