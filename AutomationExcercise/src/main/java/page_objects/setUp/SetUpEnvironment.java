@@ -1,5 +1,6 @@
 package page_objects.setUp;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.junit.Before;
@@ -55,6 +56,8 @@ public class SetUpEnvironment {
     protected String url = "https://automationexercise.com";
     protected String projectPath;
     protected String filePath;
+    protected String absoluteDownloadFilePath;
+    protected File downloadFolder;
 
     // Page Objects UI
     protected MainPageUI mainPageUI;
@@ -172,7 +175,10 @@ public class SetUpEnvironment {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         projectPath = System.getProperty("user.dir");
+
+        downloadFolder = new File(projectPath, "/src/main/resources/download");
         filePath = projectPath + "/src/main/resources/TestDataFile.txt";
+        absoluteDownloadFilePath = "C:/Users/Sebas/OneDrive/Desktop/Automation-Excercise/AutomationExcercise/src/main/resources/download";
         js = (JavascriptExecutor) driver;
 
     }

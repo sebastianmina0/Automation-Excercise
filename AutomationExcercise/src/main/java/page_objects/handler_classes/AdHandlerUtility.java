@@ -11,11 +11,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import page_objects.setUp.SetUpEnvironment;
+
 /**
  * Class created to handle all Google Ads and Chrome options
  * AdHandlerUtility
  */
-public class AdHandlerUtility {
+public class AdHandlerUtility extends SetUpEnvironment{
 
     /**
      * This method hide all iframes in the webpage
@@ -60,6 +62,9 @@ public class AdHandlerUtility {
         prefs.put("autofill.profile_enabled", false); // Disable save addresses
         prefs.put("credentials_enable_service", false); // Disable save passwords
         prefs.put("profile.password_manager_enabled", false);
+        prefs.put("autofill.credit_card_enabled", false);
+        prefs.put("download.default_directory", absoluteDownloadFilePath);
+        prefs.put("download.prompt_for_download", false);
         
         options.setExperimentalOption("prefs", prefs);
         

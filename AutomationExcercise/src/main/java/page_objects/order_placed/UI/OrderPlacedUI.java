@@ -40,4 +40,15 @@ public class OrderPlacedUI {
         return driver.findElement(By.cssSelector("a[href='/delete_account']"));
     }
 
+    /**
+     * Returns a WebElement
+     * @return WebElement
+     */
+    public WebElement downloadButton(){
+
+        return driver.findElement(By.cssSelector(".btn.btn-default.check_out"));
+    }
+
+
+
 }

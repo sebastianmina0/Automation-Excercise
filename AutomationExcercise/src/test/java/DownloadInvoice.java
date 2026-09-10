@@ -6,22 +6,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import junit.framework.Assert;
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.main_page.UI.MainPageUI;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.TestDataGenerator;
 
-/**
- * This class is created to place and order while register a new user
- * PlaceOrderRegisterWhileCheckout
- */
-public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
+public class DownloadInvoice extends SetUpEnvironment {
 
-    @Test
-    /**
-     * Test Case 14: Place Order: Register while Checkout
-     * @throws InterruptedException
-     */
-    public void placeOrderWithRegister() throws InterruptedException{
+    @Test 
+
+    public void downloadInvoice() throws InterruptedException{
 
         //3) Verify that home page is visible successfully
         AdHandlerUtility.hideAds(driver);
@@ -142,17 +134,15 @@ public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
         paymentServices.clickConfirmOrder();
 
         AdHandlerUtility.hideAds(driver);
-        //18) Verify success message 'Your order has been placed successfully!'
-        //wait.until(ExpectedConditions.visibilityOf(paymentUI.orderSuccessMessage()));
+        //19) Click 'Download Invoice' button and verify invoice is downloaded successfully.
+        orderPlacedServices.clickDownload();
+        boolean isDownloaded = orderPlacedServices.waitForDownloadToComplete(absoluteDownloadFilePath,"invoice", 20);
 
-        /*AdHandlerUtility.hideAds(driver);
-        //19) Click 'Delete Account' button
-        orderPlacedServices.clickDeleteAccount();
-
-        //20) Verify 'ACCOUNT DELETED!' and click 'Continue' button
-        wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
-        accountDeletedServices.clickContinue();*/
-
+        if(isDownloaded){
+            System.out.println("Download successfully");
+        } else{
+            System.out.println("Download incorrect");
+        }
     }
 
 }
