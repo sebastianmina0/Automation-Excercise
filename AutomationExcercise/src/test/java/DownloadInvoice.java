@@ -9,10 +9,17 @@ import page_objects.handler_classes.AdHandlerUtility;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.TestDataGenerator;
 
+/**
+ * This class verifies a downloaded file
+ * DownloadInvoice
+ */
 public class DownloadInvoice extends SetUpEnvironment {
 
     @Test 
-
+    /**
+     * Test Case 24: Download Invoice after purchase order
+     * @throws InterruptedException
+     */
     public void downloadInvoice() throws InterruptedException{
 
         //3) Verify that home page is visible successfully
@@ -60,7 +67,7 @@ public class DownloadInvoice extends SetUpEnvironment {
         cartServices.clickRegisterLogin();
 
         //9) Fill all details in Signup and create account
-        
+
         //Enter name and email address
         signUpLoginPageServices.enterNameAndEmail(TestDataGenerator.newUserName(), TestDataGenerator.newEmail());
 

@@ -180,9 +180,8 @@ public class SetUpEnvironment {
             downloadFolder.mkdirs(); 
         }       
         filePath = projectPath + "/src/main/resources/TestDataFile.txt";
-        absoluteDownloadFilePath = downloadFolder.getAbsolutePath().replace("\\", "/");
+        absoluteDownloadFilePath = downloadFolder.getAbsolutePath();
         js = (JavascriptExecutor) driver;
-        System.out.println(absoluteDownloadFilePath);
 
     }
 

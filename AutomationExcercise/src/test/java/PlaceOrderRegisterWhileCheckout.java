@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import junit.framework.Assert;
 import page_objects.handler_classes.AdHandlerUtility;
-import page_objects.main_page.UI.MainPageUI;
 import page_objects.setUp.SetUpEnvironment;
 import page_objects.test_data.TestDataGenerator;
 
@@ -145,13 +144,13 @@ public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
         //18) Verify success message 'Your order has been placed successfully!'
         //wait.until(ExpectedConditions.visibilityOf(paymentUI.orderSuccessMessage()));
 
-        /*AdHandlerUtility.hideAds(driver);
+        AdHandlerUtility.hideAds(driver);
         //19) Click 'Delete Account' button
         orderPlacedServices.clickDeleteAccount();
 
         //20) Verify 'ACCOUNT DELETED!' and click 'Continue' button
         wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
-        accountDeletedServices.clickContinue();*/
+        accountDeletedServices.clickContinue();
 
     }
 
