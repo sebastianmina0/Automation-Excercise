@@ -64,3 +64,10 @@ mvn clean install
 Option 1: Via Command Line (Maven)
 Bash
 mvn clean test
+
+Option 2: From your IDE
+Open the project and wait for Maven to sync the pom.xml dependencies.
+
+Navigate to the src/test/java directory.
+
+Right-click on your test class or test suite and select Run.
