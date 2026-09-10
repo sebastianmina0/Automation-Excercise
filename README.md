@@ -37,3 +37,29 @@ Automation-Excercise/
 │       └── java/              # Automated test case classes
 ├── pom.xml                    # Maven configuration and dependencies
 └── README.md                  # Project documentation
+```
+⚙️ Prerequisites
+Before running this project locally, make sure you have the following installed:
+
+Java Development Kit (JDK 11 or higher)
+
+Apache Maven
+
+A compatible web browser (Google Chrome or Firefox)
+
+Recommended IDE: IntelliJ IDEA or Eclipse.
+
+📥 Cloning and Setup
+Clone the repository:
+
+Bash
+git clone [https://github.com/sebastianmina0/Automation-Excercise.git](https://github.com/sebastianmina0/Automation-Excercise.git)
+cd Automation-Excercise
+Install project dependencies:
+
+Bash
+mvn clean install
+▶️ How to Run the Tests?
+Option 1: Via Command Line (Maven)
+Bash
+mvn clean test
