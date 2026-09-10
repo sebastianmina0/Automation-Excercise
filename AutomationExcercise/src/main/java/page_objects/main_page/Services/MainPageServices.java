@@ -184,4 +184,11 @@ public class MainPageServices {
 
     }
 
+    public void clickScrollUp(){
+
+        WebElement btnUp = mainPageUI.scrollUp();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnUp);
+    }
+
 }
