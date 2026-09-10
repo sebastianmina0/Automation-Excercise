@@ -40,6 +40,8 @@ public class SubscriptionHomePage extends SetUpEnvironment {
         AdHandlerUtility.hideAds(driver);
         //7) Verify success message 'You have been successfully subscribed!' is visible
         wait.until(ExpectedConditions.visibilityOf(mainPageUI.successSubscribe()));
+
+        closeEnvironment();
     }
 
 }

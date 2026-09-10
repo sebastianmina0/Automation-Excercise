@@ -40,6 +40,8 @@ public class SearchProduct extends SetUpEnvironment {
         AdHandlerUtility.hideAds(driver);
         //8) Verify all the products related to search are visible
         productsPageServices.searchedItems();
+        
+        closeEnvironment();
     }
 
 }

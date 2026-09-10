@@ -48,6 +48,8 @@ public class ViewCategoryProducts extends SetUpEnvironment{
         AdHandlerUtility.hideAds(driver);
         //8) Verify that user is navigated to that category page
         Assert.assertEquals("https://automationexercise.com/category_products/6", driver.getCurrentUrl());
+
+        closeEnvironment();
     }
 
 }

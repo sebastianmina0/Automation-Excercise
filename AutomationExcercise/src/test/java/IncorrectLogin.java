@@ -47,6 +47,7 @@ public class IncorrectLogin extends SetUpEnvironment{
             driver.quit();
         }
 
+        closeEnvironment();
     }
 
 }

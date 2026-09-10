@@ -28,6 +28,8 @@ public class VerifyTestCasesPage extends SetUpEnvironment{
 
         //5) Verify user is navigated to test cases page successfully
         Assert.assertEquals("https://automationexercise.com/test_cases", driver.getCurrentUrl() );
+
+        closeEnvironment();
     }
 
 }

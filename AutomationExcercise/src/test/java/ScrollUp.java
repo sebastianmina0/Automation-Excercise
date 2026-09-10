@@ -38,6 +38,8 @@ public class ScrollUp extends SetUpEnvironment{
         AdHandlerUtility.hideAds(driver);
         //7) Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("img[alt='Website for automation practice']"))));
+
+        closeEnvironment();
     }
 
 }

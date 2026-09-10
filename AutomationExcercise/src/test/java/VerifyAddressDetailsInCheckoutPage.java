@@ -99,6 +99,7 @@ public class VerifyAddressDetailsInCheckoutPage extends SetUpEnvironment {
         Assert.assertEquals(country, driver.findElement(By.cssSelector("ul[id='address_invoice'] li[class='address_country_name']")).getText());
         Assert.assertEquals(mobileNumber, driver.findElement(By.cssSelector("ul[id='address_invoice'] li[class='address_phone']")).getText());
 
+        closeEnvironment();
     }
 
 }

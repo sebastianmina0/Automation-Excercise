@@ -152,6 +152,8 @@ public class PlaceOrderRegisterWhileCheckout extends SetUpEnvironment {
         wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
         accountDeletedServices.clickContinue();
 
+        closeEnvironment();
+
     }
 
 }

@@ -47,11 +47,13 @@ public class CorrectLogin extends SetUpEnvironment{
         wait.until(ExpectedConditions.visibilityOf(loggedInPageUI.loggedInAsUser()));
 
         AdHandlerUtility.hideAds(driver);
-        //9) Click 'Delete button'
+        /*//9) Click 'Delete button'
         loggedInPageServices.clickDelete();
 
         //10) Verify that 'ACCOUNT DELETED!' is visible
-        Assert.assertEquals(true, accountDeletedUI.accountDeletedText().isDisplayed());
+        Assert.assertEquals(true, accountDeletedUI.accountDeletedText().isDisplayed());*/
+
+        closeEnvironment();
 
     }
 

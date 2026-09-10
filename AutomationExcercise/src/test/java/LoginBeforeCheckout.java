@@ -101,6 +101,8 @@ public class LoginBeforeCheckout extends SetUpEnvironment {
         //17) Verify 'ACCOUNT DELETED!' and click 'Continue' button
         wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
         accountDeletedServices.clickContinue();
+
+        closeEnvironment();
     }
 
 }

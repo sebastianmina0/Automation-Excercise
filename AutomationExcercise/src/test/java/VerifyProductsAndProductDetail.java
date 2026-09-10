@@ -46,6 +46,8 @@ public class VerifyProductsAndProductDetail extends SetUpEnvironment{
 
         //9) Verify that detail is visible: product name, category, price, availability, condition, brand
         wait.until(ExpectedConditions.visibilityOf(rs500UI.rs500Information()));
+
+        closeEnvironment();
     }
 
 }

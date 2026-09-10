@@ -47,6 +47,7 @@ public class ViewCartBrandProducts extends SetUpEnvironment {
         Assert.assertEquals("https://automationexercise.com/brand_products/Madame", driver.getCurrentUrl());
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("body > section > div > div.row > div.col-sm-9.padding-right > div"))));
 
+        closeEnvironment();
     }
 
 }

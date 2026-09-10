@@ -51,6 +51,8 @@ public class LogoutUser extends SetUpEnvironment {
         wait.until(ExpectedConditions.visibilityOf(signUpLoginPageUI.loginText()));
         System.out.println("Logout correct");
 
+        closeEnvironment();
+
     }
 
 }

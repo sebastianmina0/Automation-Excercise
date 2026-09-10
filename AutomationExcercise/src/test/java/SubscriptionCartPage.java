@@ -44,6 +44,8 @@ public class SubscriptionCartPage extends SetUpEnvironment {
         //8) Verify success message 'You have been successfully subscribed!' is visible
         wait.until(ExpectedConditions.visibilityOf(cartUI.cartSuccessSubscribe()));
 
+        closeEnvironment();
+
     }
 
 }

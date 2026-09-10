@@ -81,6 +81,8 @@ public class RegisterUser extends SetUpEnvironment {
 
         //Click continue button
         accountDeletedServices.clickContinue();
+
+        closeEnvironment();
     }
 
 }

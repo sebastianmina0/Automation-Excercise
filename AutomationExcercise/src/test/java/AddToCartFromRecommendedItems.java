@@ -35,6 +35,8 @@ public class AddToCartFromRecommendedItems extends SetUpEnvironment{
         AdHandlerUtility.hideAds(driver);
         //7) Verify that product is displayed in cart page
         cartServices.cartInformation();
+
+        closeEnvironment();
     }
 
 }

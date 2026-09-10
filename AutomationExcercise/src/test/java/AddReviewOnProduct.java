@@ -50,6 +50,8 @@ public class AddReviewOnProduct extends SetUpEnvironment {
         
         //9) Verify success message 'Thank you for your review.'
         Assert.assertEquals("Thank you for your review.", thanks );
+
+        closeEnvironment();
     }
 
 

@@ -60,6 +60,8 @@ public class AddProductsInCart extends SetUpEnvironment {
         //9) Verify both products are added to Cart
         //10) Verify their prices, quantity and total price
         cartServices.cartInformation();
+
+        closeEnvironment();
     }
 
 }

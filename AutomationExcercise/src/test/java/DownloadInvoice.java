@@ -151,6 +151,8 @@ public class DownloadInvoice extends SetUpEnvironment {
             System.out.println("Download incorrect");
         }
         downloadFolder.deleteOnExit();
+
+        closeEnvironment();
     }
 
 }

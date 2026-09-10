@@ -58,7 +58,7 @@ public class SearchProductsAndVerifyCart extends SetUpEnvironment {
         //12) Verify that those products are visible in cart after login as well
         cartServices.cartInformation();
 
-
+        closeEnvironment();
         
     }
 

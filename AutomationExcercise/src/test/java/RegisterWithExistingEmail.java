@@ -50,6 +50,8 @@ public class RegisterWithExistingEmail extends SetUpEnvironment {
             System.out.println("Test Case fail, user already exist");
             driver.quit();
         }
+
+        closeEnvironment();
     }
 
 }

@@ -59,6 +59,8 @@ public class RemoveProducts extends SetUpEnvironment{
         //8) Verify that product is removed from the cart
         cartServices.itemsDeleted();
 
+        closeEnvironment();
+
     }
 
 }

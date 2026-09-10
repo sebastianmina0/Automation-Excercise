@@ -137,6 +137,8 @@ public class PlaceOrderRegisterBeforeCheckout extends SetUpEnvironment{
         //18) Verify 'ACCOUNT DELETED!' and click 'Continue' button
         wait.until(ExpectedConditions.visibilityOf(accountDeletedUI.accountDeletedText()));
         accountDeletedServices.clickContinue();
+
+        closeEnvironment();
     }
 
 
