@@ -173,13 +173,16 @@ public class SetUpEnvironment {
         poloBrandPageServices = new PoloBrandPageServices(driver);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         projectPath = System.getProperty("user.dir");
 
-        downloadFolder = new File(projectPath, "/src/main/resources/download");
+        downloadFolder = new File(projectPath, "src/main/resources/download");
+        if (!downloadFolder.exists()) {
+            downloadFolder.mkdirs(); 
+        }       
         filePath = projectPath + "/src/main/resources/TestDataFile.txt";
-        absoluteDownloadFilePath = "C:/Users/Sebas/OneDrive/Desktop/Automation-Excercise/AutomationExcercise/src/main/resources/download";
+        absoluteDownloadFilePath = downloadFolder.getAbsolutePath().replace("\\", "/");
         js = (JavascriptExecutor) driver;
+        System.out.println(absoluteDownloadFilePath);
 
     }
 

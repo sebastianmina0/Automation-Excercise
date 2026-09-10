@@ -62,7 +62,9 @@ public class CartServices {
      */
     public void clickRegisterLogin(){
 
-        cartUI.registerLogin().click();
+        WebElement btnLogin = cartUI.registerLogin();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnLogin);
     }
 
     /**

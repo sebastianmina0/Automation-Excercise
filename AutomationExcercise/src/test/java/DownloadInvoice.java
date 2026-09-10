@@ -60,7 +60,7 @@ public class DownloadInvoice extends SetUpEnvironment {
         cartServices.clickRegisterLogin();
 
         //9) Fill all details in Signup and create account
-
+        
         //Enter name and email address
         signUpLoginPageServices.enterNameAndEmail(TestDataGenerator.newUserName(), TestDataGenerator.newEmail());
 
@@ -143,6 +143,7 @@ public class DownloadInvoice extends SetUpEnvironment {
         } else{
             System.out.println("Download incorrect");
         }
+        downloadFolder.deleteOnExit();
     }
 
 }
